@@ -44,7 +44,15 @@ nav{background:rgba(6,7,15,0.95);border-bottom:1px solid rgba(99,102,241,0.12);p
 .proj-link:hover{border-color:var(--accent);color:#fff;background:rgba(99,102,241,0.1)}
 .proj-link-live{border-color:rgba(16,185,129,0.3);color:#6ee7b7}
 .proj-link-live:hover{border-color:#10b981;background:rgba(16,185,129,0.08)}
-.proj-desc{font-size:.83rem;color:var(--muted);margin-bottom:12px;line-height:1.55}
+.proj-meta{display:flex;align-items:center;gap:6px;margin-bottom:10px;flex-wrap:wrap}
+.proj-meta-item{display:flex;align-items:center;gap:4px}
+.proj-meta-label{font-size:.65rem;font-weight:700;text-transform:uppercase;letter-spacing:.05em;color:#475569;white-space:nowrap}
+.proj-meta-val{font-size:.75rem;font-weight:600;white-space:nowrap}
+.proj-meta-sep{color:#334155;font-size:.8rem}
+.proj-tools-row{display:flex;align-items:center;gap:8px;margin-bottom:10px}
+.proj-tools-row .proj-meta-label{white-space:nowrap;padding-top:2px}
+.proj-tools-row .proj-badges{margin-bottom:0}
+.proj-desc{font-size:.83rem;color:var(--muted);margin-bottom:10px;line-height:1.55}
 .proj-badges{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:10px}
 .proj-badge{font-size:.68rem;font-weight:600;padding:2px 8px;border-radius:999px;background:rgba(99,102,241,0.1);color:#a5b4fc;border:1px solid rgba(99,102,241,0.2)}
 .proj-metric{font-size:.75rem;color:#6ee7b7;background:rgba(16,185,129,0.08);border:1px solid rgba(16,185,129,0.18);padding:4px 10px;border-radius:6px;display:inline-block}
@@ -100,8 +108,13 @@ footer{text-align:center;padding:36px;color:var(--muted);font-size:.82rem;border
               <a href="https://sandyyy123.github.io/trading-pattern-research-db/" target="_blank" class="proj-link proj-link-live">Live Demo</a>
             </div>
           </div>
+          <div class="proj-meta">
+            <span class="proj-meta-item"><span class="proj-meta-label">Domain</span><span class="proj-meta-val" style="color:#6366f1">Finance & Quantitative Analysis</span></span>
+            <span class="proj-meta-sep">·</span>
+            <span class="proj-meta-item"><span class="proj-meta-label">Category</span><span class="proj-meta-val">Pattern Backtesting</span></span>
+          </div>
           <p class="proj-desc">Statistical backtesting engine: TradingView CSV → SQLite → p-value validated edges. Identifies chart patterns with genuine statistical significance.</p>
-          <div class="proj-badges"><span class="proj-badge">SQLite</span> <span class="proj-badge">pandas</span> <span class="proj-badge">YAML config</span> <span class="proj-badge">statistics</span></div>
+          <div class="proj-tools-row"><span class="proj-meta-label">Tools</span><div class="proj-badges"><span class="proj-badge">SQLite</span> <span class="proj-badge">pandas</span> <span class="proj-badge">YAML config</span> <span class="proj-badge">statistics</span></div></div>
           <div class="proj-metric">✦ 67% win rate · p=0.003 (sample pattern)</div>
         </div>
         <div class="proj-card">
@@ -112,8 +125,13 @@ footer{text-align:center;padding:36px;color:var(--muted);font-size:.82rem;border
               <a href="https://sandyyy123.github.io/ieee-fraud-detection/" target="_blank" class="proj-link proj-link-live">Live Demo</a>
             </div>
           </div>
+          <div class="proj-meta">
+            <span class="proj-meta-item"><span class="proj-meta-label">Domain</span><span class="proj-meta-val" style="color:#6366f1">Finance & Quantitative Analysis</span></span>
+            <span class="proj-meta-sep">·</span>
+            <span class="proj-meta-item"><span class="proj-meta-label">Category</span><span class="proj-meta-val">Fraud Detection</span></span>
+          </div>
           <p class="proj-desc">Two-stage pipeline on 590K+ transactions: LightGBM tabular baseline + GraphSAGE GNN on card-merchant-device graph. EU AI Act / BaFin compliance framing.</p>
-          <div class="proj-badges"><span class="proj-badge">LightGBM</span> <span class="proj-badge">PyG</span> <span class="proj-badge">CatBoost</span> <span class="proj-badge">GNN</span></div>
+          <div class="proj-tools-row"><span class="proj-meta-label">Tools</span><div class="proj-badges"><span class="proj-badge">LightGBM</span> <span class="proj-badge">PyG</span> <span class="proj-badge">CatBoost</span> <span class="proj-badge">GNN</span></div></div>
           <div class="proj-metric">✦ ROC-AUC + PR-AUC · GNN fallback if AUC &lt; 0.85</div>
         </div>
         <div class="proj-card">
@@ -124,8 +142,13 @@ footer{text-align:center;padding:36px;color:var(--muted);font-size:.82rem;border
               <a href="https://sandyyy123.github.io/ml-trading-signal/" target="_blank" class="proj-link proj-link-live">Live Demo</a>
             </div>
           </div>
+          <div class="proj-meta">
+            <span class="proj-meta-item"><span class="proj-meta-label">Domain</span><span class="proj-meta-val" style="color:#6366f1">Finance & Quantitative Analysis</span></span>
+            <span class="proj-meta-sep">·</span>
+            <span class="proj-meta-item"><span class="proj-meta-label">Category</span><span class="proj-meta-val">Algorithmic Trading</span></span>
+          </div>
           <p class="proj-desc">LSTM + Random Forest ensemble trading system with Alpaca API integration, ATR-based risk management, and walk-forward backtesting.</p>
-          <div class="proj-badges"><span class="proj-badge">PyTorch LSTM</span> <span class="proj-badge">Alpaca API</span> <span class="proj-badge">TA-Lib</span> <span class="proj-badge">Backtrader</span></div>
+          <div class="proj-tools-row"><span class="proj-meta-label">Tools</span><div class="proj-badges"><span class="proj-badge">PyTorch LSTM</span> <span class="proj-badge">Alpaca API</span> <span class="proj-badge">TA-Lib</span> <span class="proj-badge">Backtrader</span></div></div>
           <div class="proj-metric">✦ Sharpe 0.87 · Win Rate 63.2% · Annual +28.3%</div>
         </div>
         <div class="proj-card">
@@ -136,8 +159,13 @@ footer{text-align:center;padding:36px;color:var(--muted);font-size:.82rem;border
               <a href="https://sandyyy123.github.io/xauusd-scalper-research/" target="_blank" class="proj-link proj-link-live">Live Demo</a>
             </div>
           </div>
+          <div class="proj-meta">
+            <span class="proj-meta-item"><span class="proj-meta-label">Domain</span><span class="proj-meta-val" style="color:#6366f1">Finance & Quantitative Analysis</span></span>
+            <span class="proj-meta-sep">·</span>
+            <span class="proj-meta-item"><span class="proj-meta-label">Category</span><span class="proj-meta-val">Scalping Strategy</span></span>
+          </div>
           <p class="proj-desc">Gold scalping EA: Python backtest → MQL5 deployment. EMA/RSI/Stochastic/ATR strategy targeting high win rate with controlled drawdown.</p>
-          <div class="proj-badges"><span class="proj-badge">MQL5</span> <span class="proj-badge">MetaTrader 5</span> <span class="proj-badge">Walk-Forward</span></div>
+          <div class="proj-tools-row"><span class="proj-meta-label">Tools</span><div class="proj-badges"><span class="proj-badge">MQL5</span> <span class="proj-badge">MetaTrader 5</span> <span class="proj-badge">Walk-Forward</span></div></div>
           <div class="proj-metric">✦ Win 77.3% · Sharpe 1.87 · MaxDD 4.2%</div>
         </div>
         <div class="proj-card">
@@ -148,8 +176,13 @@ footer{text-align:center;padding:36px;color:var(--muted);font-size:.82rem;border
               <a href="https://sandyyy123.github.io/asc718-monte-carlo-valuation/" target="_blank" class="proj-link proj-link-live">Live Demo</a>
             </div>
           </div>
+          <div class="proj-meta">
+            <span class="proj-meta-item"><span class="proj-meta-label">Domain</span><span class="proj-meta-val" style="color:#6366f1">Finance & Quantitative Analysis</span></span>
+            <span class="proj-meta-sep">·</span>
+            <span class="proj-meta-item"><span class="proj-meta-label">Category</span><span class="proj-meta-val">Equity Valuation</span></span>
+          </div>
           <p class="proj-desc">Audit-ready GBM Monte Carlo valuation for performance RSUs with consecutive-day price barriers. 100K simulation paths, 5 tranches, Big-4-auditable output.</p>
-          <div class="proj-badges"><span class="proj-badge">Monte Carlo</span> <span class="proj-badge">GBM</span> <span class="proj-badge">ASC 718</span> <span class="proj-badge">numpy</span></div>
+          <div class="proj-tools-row"><span class="proj-meta-label">Tools</span><div class="proj-badges"><span class="proj-badge">Monte Carlo</span> <span class="proj-badge">GBM</span> <span class="proj-badge">ASC 718</span> <span class="proj-badge">numpy</span></div></div>
           <div class="proj-metric">✦ 100K GBM paths · 60-day consecutive barrier</div>
         </div>
         <div class="proj-card">
@@ -160,8 +193,13 @@ footer{text-align:center;padding:36px;color:var(--muted);font-size:.82rem;border
               <a href="https://sandyyy123.github.io/ohlcv-market-data-pipeline/" target="_blank" class="proj-link proj-link-live">Live Demo</a>
             </div>
           </div>
+          <div class="proj-meta">
+            <span class="proj-meta-item"><span class="proj-meta-label">Domain</span><span class="proj-meta-val" style="color:#6366f1">Finance & Quantitative Analysis</span></span>
+            <span class="proj-meta-sep">·</span>
+            <span class="proj-meta-item"><span class="proj-meta-label">Category</span><span class="proj-meta-val">Data Engineering</span></span>
+          </div>
           <p class="proj-desc">Production data engineering pipeline: Binance + Yahoo + CoinGecko → PostgreSQL. Great Expectations validation, gap detection, corporate-action adjustment.</p>
-          <div class="proj-badges"><span class="proj-badge">ccxt</span> <span class="proj-badge">Great Expectations</span> <span class="proj-badge">PostgreSQL</span></div>
+          <div class="proj-tools-row"><span class="proj-meta-label">Tools</span><div class="proj-badges"><span class="proj-badge">ccxt</span> <span class="proj-badge">Great Expectations</span> <span class="proj-badge">PostgreSQL</span></div></div>
           <div class="proj-metric">✦ Multi-source · timezone-aligned · schema-validated</div>
         </div>
         <div class="proj-card">
@@ -172,8 +210,13 @@ footer{text-align:center;padding:36px;color:var(--muted);font-size:.82rem;border
               <a href="https://sandyyy123.github.io/stock-portfolio-recommender/" target="_blank" class="proj-link proj-link-live">Live Demo</a>
             </div>
           </div>
+          <div class="proj-meta">
+            <span class="proj-meta-item"><span class="proj-meta-label">Domain</span><span class="proj-meta-val" style="color:#6366f1">Finance & Quantitative Analysis</span></span>
+            <span class="proj-meta-sep">·</span>
+            <span class="proj-meta-item"><span class="proj-meta-label">Category</span><span class="proj-meta-val">Portfolio Optimisation</span></span>
+          </div>
           <p class="proj-desc">Cluster-then-rank system: investor risk profiling → factor-scored stocks → mean-variance weight optimization. Backtested vs S&amp;P 500.</p>
-          <div class="proj-badges"><span class="proj-badge">cvxpy</span> <span class="proj-badge">yfinance</span> <span class="proj-badge">K-Means</span> <span class="proj-badge">MVO</span></div>
+          <div class="proj-tools-row"><span class="proj-meta-label">Tools</span><div class="proj-badges"><span class="proj-badge">cvxpy</span> <span class="proj-badge">yfinance</span> <span class="proj-badge">K-Means</span> <span class="proj-badge">MVO</span></div></div>
           <div class="proj-metric">✦ Sharpe/momentum/quality factors · Backtest vs SPY</div>
         </div>
         <div class="proj-card">
@@ -184,8 +227,13 @@ footer{text-align:center;padding:36px;color:var(--muted);font-size:.82rem;border
               <a href="https://sandyyy123.github.io/async-trading-audit/" target="_blank" class="proj-link proj-link-live">Live Demo</a>
             </div>
           </div>
+          <div class="proj-meta">
+            <span class="proj-meta-item"><span class="proj-meta-label">Domain</span><span class="proj-meta-val" style="color:#6366f1">Finance & Quantitative Analysis</span></span>
+            <span class="proj-meta-sep">·</span>
+            <span class="proj-meta-item"><span class="proj-meta-label">Category</span><span class="proj-meta-val">Code Quality Audit</span></span>
+          </div>
           <p class="proj-desc">Python AST-based static analysis for asyncio crypto trading systems. Detects race conditions, blocking calls, CCXT anti-patterns, and order-state fragility.</p>
-          <div class="proj-badges"><span class="proj-badge">AST analysis</span> <span class="proj-badge">asyncio</span> <span class="proj-badge">CCXT</span></div>
+          <div class="proj-tools-row"><span class="proj-meta-label">Tools</span><div class="proj-badges"><span class="proj-badge">AST analysis</span> <span class="proj-badge">asyncio</span> <span class="proj-badge">CCXT</span></div></div>
           <div class="proj-metric">✦ Static analysis · zero runtime needed</div>
         </div>
         <div class="proj-card">
@@ -196,8 +244,13 @@ footer{text-align:center;padding:36px;color:var(--muted);font-size:.82rem;border
               <a href="https://sandyyy123.github.io/restaurant-causal-inference-demo/" target="_blank" class="proj-link proj-link-live">Live Demo</a>
             </div>
           </div>
+          <div class="proj-meta">
+            <span class="proj-meta-item"><span class="proj-meta-label">Domain</span><span class="proj-meta-val" style="color:#6366f1">Finance & Quantitative Analysis</span></span>
+            <span class="proj-meta-sep">·</span>
+            <span class="proj-meta-item"><span class="proj-meta-label">Category</span><span class="proj-meta-val">Causal Inference</span></span>
+          </div>
           <p class="proj-desc">DiD + two-way fixed effects measuring AI coaching lift on average check size across 6-7 restaurant locations, with synthetic control robustness check.</p>
-          <div class="proj-badges"><span class="proj-badge">DiD</span> <span class="proj-badge">statsmodels</span> <span class="proj-badge">Synthetic Control</span></div>
+          <div class="proj-tools-row"><span class="proj-meta-label">Tools</span><div class="proj-badges"><span class="proj-badge">DiD</span> <span class="proj-badge">statsmodels</span> <span class="proj-badge">Synthetic Control</span></div></div>
           <div class="proj-metric">✦ MDE ~$0.85 (~4.4% lift) · 80% power</div>
         </div>
         </div>
@@ -219,8 +272,13 @@ footer{text-align:center;padding:36px;color:var(--muted);font-size:.82rem;border
               <a href="https://sandyyy123.github.io/clinical-image-ai/" target="_blank" class="proj-link proj-link-live">Live Demo</a>
             </div>
           </div>
+          <div class="proj-meta">
+            <span class="proj-meta-item"><span class="proj-meta-label">Domain</span><span class="proj-meta-val" style="color:#10b981">Healthcare & Medical AI</span></span>
+            <span class="proj-meta-sep">·</span>
+            <span class="proj-meta-item"><span class="proj-meta-label">Category</span><span class="proj-meta-val">Image Enhancement</span></span>
+          </div>
           <p class="proj-desc">Batch clinical image enhancement: NLM denoising, CLAHE contrast, artifact suppression, per-channel normalization. ISO-compliant PDF reports with SNR/contrast metrics.</p>
-          <div class="proj-badges"><span class="proj-badge">OpenCV</span> <span class="proj-badge">scikit-image</span> <span class="proj-badge">fpdf2</span></div>
+          <div class="proj-tools-row"><span class="proj-meta-label">Tools</span><div class="proj-badges"><span class="proj-badge">OpenCV</span> <span class="proj-badge">scikit-image</span> <span class="proj-badge">fpdf2</span></div></div>
           <div class="proj-metric">✦ SNR &gt; 20 · contrast &gt; 40 compliance thresholds</div>
         </div>
         <div class="proj-card">
@@ -231,8 +289,13 @@ footer{text-align:center;padding:36px;color:var(--muted);font-size:.82rem;border
               <a href="https://sandyyy123.github.io/covid-xray-classifier/" target="_blank" class="proj-link proj-link-live">Live Demo</a>
             </div>
           </div>
+          <div class="proj-meta">
+            <span class="proj-meta-item"><span class="proj-meta-label">Domain</span><span class="proj-meta-val" style="color:#10b981">Healthcare & Medical AI</span></span>
+            <span class="proj-meta-sep">·</span>
+            <span class="proj-meta-item"><span class="proj-meta-label">Category</span><span class="proj-meta-val">Disease Classification</span></span>
+          </div>
           <p class="proj-desc">3-class chest X-ray triage (COVID-19 / Viral Pneumonia / Normal) using EfficientNet-B4 with GradCAM saliency maps for radiologist-interpretable explanations.</p>
-          <div class="proj-badges"><span class="proj-badge">PyTorch</span> <span class="proj-badge">EfficientNet-B4</span> <span class="proj-badge">GradCAM</span></div>
+          <div class="proj-tools-row"><span class="proj-meta-label">Tools</span><div class="proj-badges"><span class="proj-badge">PyTorch</span> <span class="proj-badge">EfficientNet-B4</span> <span class="proj-badge">GradCAM</span></div></div>
           <div class="proj-metric">✦ AUC-ROC + sensitivity/specificity per class</div>
         </div>
         <div class="proj-card">
@@ -243,8 +306,13 @@ footer{text-align:center;padding:36px;color:var(--muted);font-size:.82rem;border
               <a href="https://sandyyy123.github.io/pneumonia-detection-cv/" target="_blank" class="proj-link proj-link-live">Live Demo</a>
             </div>
           </div>
+          <div class="proj-meta">
+            <span class="proj-meta-item"><span class="proj-meta-label">Domain</span><span class="proj-meta-val" style="color:#10b981">Healthcare & Medical AI</span></span>
+            <span class="proj-meta-sep">·</span>
+            <span class="proj-meta-item"><span class="proj-meta-label">Category</span><span class="proj-meta-val">Object Detection</span></span>
+          </div>
           <p class="proj-desc">Pneumonia opacity detection and localisation in chest X-rays using Faster R-CNN and RetinaNet on 26,684 RSNA 2018 challenge images.</p>
-          <div class="proj-badges"><span class="proj-badge">Faster R-CNN</span> <span class="proj-badge">RetinaNet</span> <span class="proj-badge">pydicom</span></div>
+          <div class="proj-tools-row"><span class="proj-meta-label">Tools</span><div class="proj-badges"><span class="proj-badge">Faster R-CNN</span> <span class="proj-badge">RetinaNet</span> <span class="proj-badge">pydicom</span></div></div>
           <div class="proj-metric">✦ mAP@IoU[0.4:0.75] · RSNA 2018 benchmark</div>
         </div>
         <div class="proj-card">
@@ -255,8 +323,13 @@ footer{text-align:center;padding:36px;color:var(--muted);font-size:.82rem;border
               <a href="https://sandyyy123.github.io/dental-loupe-ai/" target="_blank" class="proj-link proj-link-live">Live Demo</a>
             </div>
           </div>
+          <div class="proj-meta">
+            <span class="proj-meta-item"><span class="proj-meta-label">Domain</span><span class="proj-meta-val" style="color:#10b981">Healthcare & Medical AI</span></span>
+            <span class="proj-meta-sep">·</span>
+            <span class="proj-meta-item"><span class="proj-meta-label">Category</span><span class="proj-meta-val">Edge AI / Real-Time</span></span>
+          </div>
           <p class="proj-desc">Real-time edge AI for dental operatories: MediaPipe ergonomics monitoring, Whisper voice charting, BLE/GPIO curing light control on Jetson Nano / RPi 5.</p>
-          <div class="proj-badges"><span class="proj-badge">MediaPipe</span> <span class="proj-badge">Whisper</span> <span class="proj-badge">TensorRT</span> <span class="proj-badge">BLE</span></div>
+          <div class="proj-tools-row"><span class="proj-meta-label">Tools</span><div class="proj-badges"><span class="proj-badge">MediaPipe</span> <span class="proj-badge">Whisper</span> <span class="proj-badge">TensorRT</span> <span class="proj-badge">BLE</span></div></div>
           <div class="proj-metric">✦ ~18ms pose · ~45ms voice · &lt;80ms end-to-end</div>
         </div>
         </div>
@@ -278,8 +351,13 @@ footer{text-align:center;padding:36px;color:var(--muted);font-size:.82rem;border
               <a href="https://sandyyy123.github.io/steel-defect-segmentation/" target="_blank" class="proj-link proj-link-live">Live Demo</a>
             </div>
           </div>
+          <div class="proj-meta">
+            <span class="proj-meta-item"><span class="proj-meta-label">Domain</span><span class="proj-meta-val" style="color:#f59e0b">Computer Vision</span></span>
+            <span class="proj-meta-sep">·</span>
+            <span class="proj-meta-item"><span class="proj-meta-label">Category</span><span class="proj-meta-val">Semantic Segmentation</span></span>
+          </div>
           <p class="proj-desc">Pixel-level semantic segmentation of 4 steel surface defect classes on Severstal manufacturing data using U-Net with EfficientNet-B4 encoder.</p>
-          <div class="proj-badges"><span class="proj-badge">PyTorch</span> <span class="proj-badge">U-Net</span> <span class="proj-badge">EfficientNet-B4</span> <span class="proj-badge">albumentations</span></div>
+          <div class="proj-tools-row"><span class="proj-meta-label">Tools</span><div class="proj-badges"><span class="proj-badge">PyTorch</span> <span class="proj-badge">U-Net</span> <span class="proj-badge">EfficientNet-B4</span> <span class="proj-badge">albumentations</span></div></div>
           <div class="proj-metric">✦ Mean Dice per defect class · Dice + BCE loss</div>
         </div>
         <div class="proj-card">
@@ -290,8 +368,13 @@ footer{text-align:center;padding:36px;color:var(--muted);font-size:.82rem;border
               <a href="https://sandyyy123.github.io/industrial-anomaly-detection/" target="_blank" class="proj-link proj-link-live">Live Demo</a>
             </div>
           </div>
+          <div class="proj-meta">
+            <span class="proj-meta-item"><span class="proj-meta-label">Domain</span><span class="proj-meta-val" style="color:#f59e0b">Computer Vision</span></span>
+            <span class="proj-meta-sep">·</span>
+            <span class="proj-meta-item"><span class="proj-meta-label">Category</span><span class="proj-meta-val">Anomaly Detection</span></span>
+          </div>
           <p class="proj-desc">Unsupervised surface defect detection using PatchCore (WideResNet memory bank) with pixel-level heatmaps. Autoencoder baseline included. Trains on normal images only.</p>
-          <div class="proj-badges"><span class="proj-badge">PatchCore</span> <span class="proj-badge">WideResNet</span> <span class="proj-badge">MVTec AD</span></div>
+          <div class="proj-tools-row"><span class="proj-meta-label">Tools</span><div class="proj-badges"><span class="proj-badge">PatchCore</span> <span class="proj-badge">WideResNet</span> <span class="proj-badge">MVTec AD</span></div></div>
           <div class="proj-metric">✦ AUROC + PRO (Per-Region Overlap)</div>
         </div>
         <div class="proj-card">
@@ -302,8 +385,13 @@ footer{text-align:center;padding:36px;color:var(--muted);font-size:.82rem;border
               <a href="https://sandyyy123.github.io/form-understanding-ner/" target="_blank" class="proj-link proj-link-live">Live Demo</a>
             </div>
           </div>
+          <div class="proj-meta">
+            <span class="proj-meta-item"><span class="proj-meta-label">Domain</span><span class="proj-meta-val" style="color:#f59e0b">Computer Vision</span></span>
+            <span class="proj-meta-sep">·</span>
+            <span class="proj-meta-item"><span class="proj-meta-label">Category</span><span class="proj-meta-val">Document AI</span></span>
+          </div>
           <p class="proj-desc">Token-level entity tagging (question/answer/header/other) and key-value linking on scanned business forms using LayoutLM on the FUNSD benchmark.</p>
-          <div class="proj-badges"><span class="proj-badge">LayoutLM</span> <span class="proj-badge">pytesseract</span> <span class="proj-badge">FUNSD</span> <span class="proj-badge">seqeval</span></div>
+          <div class="proj-tools-row"><span class="proj-meta-label">Tools</span><div class="proj-badges"><span class="proj-badge">LayoutLM</span> <span class="proj-badge">pytesseract</span> <span class="proj-badge">FUNSD</span> <span class="proj-badge">seqeval</span></div></div>
           <div class="proj-metric">✦ F1 entity-level · FUNSD benchmark</div>
         </div>
         <div class="proj-card">
@@ -314,8 +402,13 @@ footer{text-align:center;padding:36px;color:var(--muted);font-size:.82rem;border
               <a href="https://sandyyy123.github.io/receipt-ocr-key-info-extraction/" target="_blank" class="proj-link proj-link-live">Live Demo</a>
             </div>
           </div>
+          <div class="proj-meta">
+            <span class="proj-meta-item"><span class="proj-meta-label">Domain</span><span class="proj-meta-val" style="color:#f59e0b">Computer Vision</span></span>
+            <span class="proj-meta-sep">·</span>
+            <span class="proj-meta-item"><span class="proj-meta-label">Category</span><span class="proj-meta-val">OCR & Information Extraction</span></span>
+          </div>
           <p class="proj-desc">Extracts company, date, address, and total from scanned receipts using Tesseract OCR + BERT NER pipeline on the ICDAR 2019 SROIE benchmark.</p>
-          <div class="proj-badges"><span class="proj-badge">pytesseract</span> <span class="proj-badge">BERT</span> <span class="proj-badge">LayoutLM</span> <span class="proj-badge">spaCy</span></div>
+          <div class="proj-tools-row"><span class="proj-meta-label">Tools</span><div class="proj-badges"><span class="proj-badge">pytesseract</span> <span class="proj-badge">BERT</span> <span class="proj-badge">LayoutLM</span> <span class="proj-badge">spaCy</span></div></div>
           <div class="proj-metric">✦ F1 score · ICDAR 2019 SROIE benchmark</div>
         </div>
         <div class="proj-card">
@@ -326,8 +419,13 @@ footer{text-align:center;padding:36px;color:var(--muted);font-size:.82rem;border
               <a href="https://sandyyy123.github.io/image-segmentation-grid/" target="_blank" class="proj-link proj-link-live">Live Demo</a>
             </div>
           </div>
+          <div class="proj-meta">
+            <span class="proj-meta-item"><span class="proj-meta-label">Domain</span><span class="proj-meta-val" style="color:#f59e0b">Computer Vision</span></span>
+            <span class="proj-meta-sep">·</span>
+            <span class="proj-meta-item"><span class="proj-meta-label">Category</span><span class="proj-meta-val">Measurement & CAD Export</span></span>
+          </div>
           <p class="proj-desc">Segments physical objects photographed on a 10mm calibration grid, corrects perspective, and exports real-world mm-coordinate outlines as SVG and DXF files.</p>
-          <div class="proj-badges"><span class="proj-badge">SAM</span> <span class="proj-badge">OpenCV</span> <span class="proj-badge">GrabCut</span> <span class="proj-badge">DXF export</span></div>
+          <div class="proj-tools-row"><span class="proj-meta-label">Tools</span><div class="proj-badges"><span class="proj-badge">SAM</span> <span class="proj-badge">OpenCV</span> <span class="proj-badge">GrabCut</span> <span class="proj-badge">DXF export</span></div></div>
           <div class="proj-metric">✦ mm-precision outlines · CAD-ready SVG/DXF</div>
         </div>
         </div>
@@ -349,8 +447,13 @@ footer{text-align:center;padding:36px;color:var(--muted);font-size:.82rem;border
               <a href="https://sandyyy123.github.io/url-threat-classifier/" target="_blank" class="proj-link proj-link-live">Live Demo</a>
             </div>
           </div>
+          <div class="proj-meta">
+            <span class="proj-meta-item"><span class="proj-meta-label">Domain</span><span class="proj-meta-val" style="color:#8b5cf6">Classical NLP & Text Processing</span></span>
+            <span class="proj-meta-sep">·</span>
+            <span class="proj-meta-item"><span class="proj-meta-label">Category</span><span class="proj-meta-val">Threat Classification</span></span>
+          </div>
           <p class="proj-desc">Real-time malicious URL detection: 33 lexical/structural features, XGBoost + LR ensemble, FastAPI endpoint with sub-50ms inference latency.</p>
-          <div class="proj-badges"><span class="proj-badge">XGBoost</span> <span class="proj-badge">FastAPI</span> <span class="proj-badge">PhishTank</span></div>
+          <div class="proj-tools-row"><span class="proj-meta-label">Tools</span><div class="proj-badges"><span class="proj-badge">XGBoost</span> <span class="proj-badge">FastAPI</span> <span class="proj-badge">PhishTank</span></div></div>
           <div class="proj-metric">✦ 97.3% accuracy · FPR 0.4% · &lt;50ms latency</div>
         </div>
         <div class="proj-card">
@@ -361,8 +464,13 @@ footer{text-align:center;padding:36px;color:var(--muted);font-size:.82rem;border
               <a href="https://sandyyy123.github.io/supply-chain-satisfaction-nlp/" target="_blank" class="proj-link proj-link-live">Live Demo</a>
             </div>
           </div>
+          <div class="proj-meta">
+            <span class="proj-meta-item"><span class="proj-meta-label">Domain</span><span class="proj-meta-val" style="color:#8b5cf6">Classical NLP & Text Processing</span></span>
+            <span class="proj-meta-sep">·</span>
+            <span class="proj-meta-item"><span class="proj-meta-label">Category</span><span class="proj-meta-val">Sentiment & Explainability</span></span>
+          </div>
           <p class="proj-desc">Hybrid SBERT embedding + LightGBM late-fusion predicting customer satisfaction from supply chain data and free-text reviews. SHAP explainability included.</p>
-          <div class="proj-badges"><span class="proj-badge">SBERT</span> <span class="proj-badge">LightGBM</span> <span class="proj-badge">SHAP</span></div>
+          <div class="proj-tools-row"><span class="proj-meta-label">Tools</span><div class="proj-badges"><span class="proj-badge">SBERT</span> <span class="proj-badge">LightGBM</span> <span class="proj-badge">SHAP</span></div></div>
           <div class="proj-metric">✦ SHAP for top satisfaction drivers</div>
         </div>
         <div class="proj-card">
@@ -373,8 +481,13 @@ footer{text-align:center;padding:36px;color:var(--muted);font-size:.82rem;border
               <a href="https://sandyyy123.github.io/indic-nlp-pipeline/" target="_blank" class="proj-link proj-link-live">Live Demo</a>
             </div>
           </div>
+          <div class="proj-meta">
+            <span class="proj-meta-item"><span class="proj-meta-label">Domain</span><span class="proj-meta-val" style="color:#8b5cf6">Classical NLP & Text Processing</span></span>
+            <span class="proj-meta-sep">·</span>
+            <span class="proj-meta-item"><span class="proj-meta-label">Category</span><span class="proj-meta-val">Multilingual Processing</span></span>
+          </div>
           <p class="proj-desc">Processes 505M+ Indian names: Unicode cleaning, Devanagari/Gurmukhi transliteration, name parsing, religion classification, frequency analysis. Checkpoint/resume for scale.</p>
-          <div class="proj-badges"><span class="proj-badge">Polars</span> <span class="proj-badge">AI4Bharat</span> <span class="proj-badge">IndicXlit</span></div>
+          <div class="proj-tools-row"><span class="proj-meta-label">Tools</span><div class="proj-badges"><span class="proj-badge">Polars</span> <span class="proj-badge">AI4Bharat</span> <span class="proj-badge">IndicXlit</span></div></div>
           <div class="proj-metric">✦ 505M+ records · 70% speedup via cache</div>
         </div>
         <div class="proj-card">
@@ -385,8 +498,13 @@ footer{text-align:center;padding:36px;color:var(--muted);font-size:.82rem;border
               <a href="https://sandyyy123.github.io/rakuten-multimodal-classifier/" target="_blank" class="proj-link proj-link-live">Live Demo</a>
             </div>
           </div>
+          <div class="proj-meta">
+            <span class="proj-meta-item"><span class="proj-meta-label">Domain</span><span class="proj-meta-val" style="color:#8b5cf6">Classical NLP & Text Processing</span></span>
+            <span class="proj-meta-sep">·</span>
+            <span class="proj-meta-item"><span class="proj-meta-label">Category</span><span class="proj-meta-val">Multimodal Classification</span></span>
+          </div>
           <p class="proj-desc">27-class French e-commerce product categorisation by late-fusing CamemBERT (text) with ResNet-50 (image) on the Rakuten France challenge dataset.</p>
-          <div class="proj-badges"><span class="proj-badge">CamemBERT</span> <span class="proj-badge">ResNet-50</span> <span class="proj-badge">CLIP</span> <span class="proj-badge">PyTorch</span></div>
+          <div class="proj-tools-row"><span class="proj-meta-label">Tools</span><div class="proj-badges"><span class="proj-badge">CamemBERT</span> <span class="proj-badge">ResNet-50</span> <span class="proj-badge">CLIP</span> <span class="proj-badge">PyTorch</span></div></div>
           <div class="proj-metric">✦ Weighted F1 · 27-class multimodal</div>
         </div>
         </div>
@@ -408,8 +526,13 @@ footer{text-align:center;padding:36px;color:var(--muted);font-size:.82rem;border
               <a href="https://sandyyy123.github.io/favorita-grocery-sales-forecasting/" target="_blank" class="proj-link proj-link-live">Live Demo</a>
             </div>
           </div>
+          <div class="proj-meta">
+            <span class="proj-meta-item"><span class="proj-meta-label">Domain</span><span class="proj-meta-val" style="color:#06b6d4">Time Series & Forecasting</span></span>
+            <span class="proj-meta-sep">·</span>
+            <span class="proj-meta-item"><span class="proj-meta-label">Category</span><span class="proj-meta-val">Demand Forecasting</span></span>
+          </div>
           <p class="proj-desc">Daily unit sales forecasting across 54 Ecuadorian stores and 33 product families (1,782 combinations) using LightGBM with lag/rolling/external regressors.</p>
-          <div class="proj-badges"><span class="proj-badge">LightGBM</span> <span class="proj-badge">statsmodels</span> <span class="proj-badge">walk-forward CV</span></div>
+          <div class="proj-tools-row"><span class="proj-meta-label">Tools</span><div class="proj-badges"><span class="proj-badge">LightGBM</span> <span class="proj-badge">statsmodels</span> <span class="proj-badge">walk-forward CV</span></div></div>
           <div class="proj-metric">✦ RMSLE · 1,782 store-family combinations</div>
         </div>
         <div class="proj-card">
@@ -420,8 +543,13 @@ footer{text-align:center;padding:36px;color:var(--muted);font-size:.82rem;border
               <a href="https://sandyyy123.github.io/smart-meter-energy-forecasting/" target="_blank" class="proj-link proj-link-live">Live Demo</a>
             </div>
           </div>
+          <div class="proj-meta">
+            <span class="proj-meta-item"><span class="proj-meta-label">Domain</span><span class="proj-meta-val" style="color:#06b6d4">Time Series & Forecasting</span></span>
+            <span class="proj-meta-sep">·</span>
+            <span class="proj-meta-item"><span class="proj-meta-label">Category</span><span class="proj-meta-val">Energy Forecasting</span></span>
+          </div>
           <p class="proj-desc">Household-level demand forecasting from 167M half-hourly readings (5,567 London households, 2011-2014) using LightGBM with ACORN socio-economic features.</p>
-          <div class="proj-badges"><span class="proj-badge">LightGBM</span> <span class="proj-badge">ACORN features</span> <span class="proj-badge">walk-forward</span></div>
+          <div class="proj-tools-row"><span class="proj-meta-label">Tools</span><div class="proj-badges"><span class="proj-badge">LightGBM</span> <span class="proj-badge">ACORN features</span> <span class="proj-badge">walk-forward</span></div></div>
           <div class="proj-metric">✦ MAE/RMSE/MAPE · 167M half-hourly records</div>
         </div>
         <div class="proj-card">
@@ -432,8 +560,13 @@ footer{text-align:center;padding:36px;color:var(--muted);font-size:.82rem;border
               <a href="https://sandyyy123.github.io/glacier-water-level-forecasting/" target="_blank" class="proj-link proj-link-live">Live Demo</a>
             </div>
           </div>
+          <div class="proj-meta">
+            <span class="proj-meta-item"><span class="proj-meta-label">Domain</span><span class="proj-meta-val" style="color:#06b6d4">Time Series & Forecasting</span></span>
+            <span class="proj-meta-sep">·</span>
+            <span class="proj-meta-item"><span class="proj-meta-label">Category</span><span class="proj-meta-val">Climate Modelling</span></span>
+          </div>
           <p class="proj-desc">Daily meltwater runoff forecasting for Vernagtferner glacier using LSTM on multivariate meteorological sequences and LightGBM with lag/calendar features.</p>
-          <div class="proj-badges"><span class="proj-badge">PyTorch LSTM</span> <span class="proj-badge">LightGBM</span> <span class="proj-badge">climate modelling</span></div>
+          <div class="proj-tools-row"><span class="proj-meta-label">Tools</span><div class="proj-badges"><span class="proj-badge">PyTorch LSTM</span> <span class="proj-badge">LightGBM</span> <span class="proj-badge">climate modelling</span></div></div>
           <div class="proj-metric">✦ Walk-forward · climate-trend modelling</div>
         </div>
         <div class="proj-card">
@@ -444,8 +577,13 @@ footer{text-align:center;padding:36px;color:var(--muted);font-size:.82rem;border
               <a href="https://sandyyy123.github.io/london-fire-response-forecasting/" target="_blank" class="proj-link proj-link-live">Live Demo</a>
             </div>
           </div>
+          <div class="proj-meta">
+            <span class="proj-meta-item"><span class="proj-meta-label">Domain</span><span class="proj-meta-val" style="color:#06b6d4">Time Series & Forecasting</span></span>
+            <span class="proj-meta-sep">·</span>
+            <span class="proj-meta-item"><span class="proj-meta-label">Category</span><span class="proj-meta-val">Emergency Services</span></span>
+          </div>
           <p class="proj-desc">First-response time regression across 500K+ London Fire Brigade incidents using spatio-temporal features and LightGBM with SHAP attribution for operational transparency.</p>
-          <div class="proj-badges"><span class="proj-badge">LightGBM</span> <span class="proj-badge">geopandas</span> <span class="proj-badge">SHAP</span></div>
+          <div class="proj-tools-row"><span class="proj-meta-label">Tools</span><div class="proj-badges"><span class="proj-badge">LightGBM</span> <span class="proj-badge">geopandas</span> <span class="proj-badge">SHAP</span></div></div>
           <div class="proj-metric">✦ SHAP attribution · 500K+ incidents</div>
         </div>
         <div class="proj-card">
@@ -456,8 +594,13 @@ footer{text-align:center;padding:36px;color:var(--muted);font-size:.82rem;border
               <a href="https://sandyyy123.github.io/turbofan-engine-rul-prediction/" target="_blank" class="proj-link proj-link-live">Live Demo</a>
             </div>
           </div>
+          <div class="proj-meta">
+            <span class="proj-meta-item"><span class="proj-meta-label">Domain</span><span class="proj-meta-val" style="color:#06b6d4">Time Series & Forecasting</span></span>
+            <span class="proj-meta-sep">·</span>
+            <span class="proj-meta-item"><span class="proj-meta-label">Category</span><span class="proj-meta-val">Predictive Maintenance</span></span>
+          </div>
           <p class="proj-desc">Predicts Remaining Useful Life of aircraft turbofan engines from multivariate sensor sequences using Random Forest and LSTM on NASA CMAPSS (FD001-FD004).</p>
-          <div class="proj-badges"><span class="proj-badge">LSTM</span> <span class="proj-badge">Random Forest</span> <span class="proj-badge">NASA CMAPSS</span></div>
+          <div class="proj-tools-row"><span class="proj-meta-label">Tools</span><div class="proj-badges"><span class="proj-badge">LSTM</span> <span class="proj-badge">Random Forest</span> <span class="proj-badge">NASA CMAPSS</span></div></div>
           <div class="proj-metric">✦ RMSE + asymmetric score (late prediction penalty)</div>
         </div>
         </div>
@@ -479,8 +622,13 @@ footer{text-align:center;padding:36px;color:var(--muted);font-size:.82rem;border
               <a href="https://sandyyy123.github.io/fashion-recommendation-engine/" target="_blank" class="proj-link proj-link-live">Live Demo</a>
             </div>
           </div>
+          <div class="proj-meta">
+            <span class="proj-meta-item"><span class="proj-meta-label">Domain</span><span class="proj-meta-val" style="color:#ec4899">Recommendation Systems</span></span>
+            <span class="proj-meta-sep">·</span>
+            <span class="proj-meta-item"><span class="proj-meta-label">Category</span><span class="proj-meta-val">Collaborative Filtering</span></span>
+          </div>
           <p class="proj-desc">Hybrid collaborative filtering + content-based recommendations for 1.37M H&amp;M customers across 31M purchase transactions using ALS, LightFM, and Annoy for fast retrieval.</p>
-          <div class="proj-badges"><span class="proj-badge">LightFM</span> <span class="proj-badge">implicit ALS</span> <span class="proj-badge">Annoy</span></div>
+          <div class="proj-tools-row"><span class="proj-meta-label">Tools</span><div class="proj-badges"><span class="proj-badge">LightFM</span> <span class="proj-badge">implicit ALS</span> <span class="proj-badge">Annoy</span></div></div>
           <div class="proj-metric">✦ MAP@12 · 1.37M customers · 31M transactions</div>
         </div>
         <div class="proj-card">
@@ -491,8 +639,13 @@ footer{text-align:center;padding:36px;color:var(--muted);font-size:.82rem;border
               <a href="https://sandyyy123.github.io/otto-session-recsys/" target="_blank" class="proj-link proj-link-live">Live Demo</a>
             </div>
           </div>
+          <div class="proj-meta">
+            <span class="proj-meta-item"><span class="proj-meta-label">Domain</span><span class="proj-meta-val" style="color:#ec4899">Recommendation Systems</span></span>
+            <span class="proj-meta-sep">·</span>
+            <span class="proj-meta-item"><span class="proj-meta-label">Category</span><span class="proj-meta-val">Session-Based RecSys</span></span>
+          </div>
           <p class="proj-desc">Session-based recommendation on OTTO dataset (12.9M sessions, 220M events, 1.85M items): co-visitation baseline + SASRec multi-task transformer for clicks/carts/orders.</p>
-          <div class="proj-badges"><span class="proj-badge">SASRec</span> <span class="proj-badge">Co-visitation Matrix</span> <span class="proj-badge">Multi-task</span></div>
+          <div class="proj-tools-row"><span class="proj-meta-label">Tools</span><div class="proj-badges"><span class="proj-badge">SASRec</span> <span class="proj-badge">Co-visitation Matrix</span> <span class="proj-badge">Multi-task</span></div></div>
           <div class="proj-metric">✦ Recall@20 weighted · 12.9M sessions</div>
         </div>
         <div class="proj-card">
@@ -503,8 +656,13 @@ footer{text-align:center;padding:36px;color:var(--muted);font-size:.82rem;border
               <a href="https://sandyyy123.github.io/baseball-pitch-sequence-predictor/" target="_blank" class="proj-link proj-link-live">Live Demo</a>
             </div>
           </div>
+          <div class="proj-meta">
+            <span class="proj-meta-item"><span class="proj-meta-label">Domain</span><span class="proj-meta-val" style="color:#ec4899">Recommendation Systems</span></span>
+            <span class="proj-meta-sep">·</span>
+            <span class="proj-meta-item"><span class="proj-meta-label">Category</span><span class="proj-meta-val">Sequence Prediction</span></span>
+          </div>
           <p class="proj-desc">Predicts next pitch type from MLB Statcast sequences using XGBoost multi-class on Tarik Skubal career data. Analyses pitcher tendencies by count and batter handedness.</p>
-          <div class="proj-badges"><span class="proj-badge">XGBoost</span> <span class="proj-badge">Statcast API</span> <span class="proj-badge">sequence features</span></div>
+          <div class="proj-tools-row"><span class="proj-meta-label">Tools</span><div class="proj-badges"><span class="proj-badge">XGBoost</span> <span class="proj-badge">Statcast API</span> <span class="proj-badge">sequence features</span></div></div>
           <div class="proj-metric">✦ 5 pitch classes · confusion matrix analysis</div>
         </div>
         </div>
@@ -526,8 +684,13 @@ footer{text-align:center;padding:36px;color:var(--muted);font-size:.82rem;border
               <a href="https://sandyyy123.github.io/construction-email-ai-analyzer/" target="_blank" class="proj-link proj-link-live">Live Demo</a>
             </div>
           </div>
+          <div class="proj-meta">
+            <span class="proj-meta-item"><span class="proj-meta-label">Domain</span><span class="proj-meta-val" style="color:#a78bfa">LLM & Generative AI</span></span>
+            <span class="proj-meta-sep">·</span>
+            <span class="proj-meta-item"><span class="proj-meta-label">Category</span><span class="proj-meta-val">LLM Extraction Pipeline</span></span>
+          </div>
           <p class="proj-desc">Parses Polish construction investment emails, extracts structured leads (type/stage/location/contact), scores priority, routes to regional reps, deduplicates across sources.</p>
-          <div class="proj-badges"><span class="proj-badge">GPT-4o</span> <span class="proj-badge">LangChain</span> <span class="proj-badge">FastAPI</span> <span class="proj-badge">SQLite</span></div>
+          <div class="proj-tools-row"><span class="proj-meta-label">Tools</span><div class="proj-badges"><span class="proj-badge">GPT-4o</span> <span class="proj-badge">LangChain</span> <span class="proj-badge">FastAPI</span> <span class="proj-badge">SQLite</span></div></div>
           <div class="proj-metric">✦ 16 voivodeships · 90-day dedup · 3 priority levels</div>
         </div>
         <div class="proj-card">
@@ -538,8 +701,13 @@ footer{text-align:center;padding:36px;color:var(--muted);font-size:.82rem;border
               <a href="https://sandyyy123.github.io/story-grammar-vectordb/" target="_blank" class="proj-link proj-link-live">Live Demo</a>
             </div>
           </div>
+          <div class="proj-meta">
+            <span class="proj-meta-item"><span class="proj-meta-label">Domain</span><span class="proj-meta-val" style="color:#a78bfa">LLM & Generative AI</span></span>
+            <span class="proj-meta-sep">·</span>
+            <span class="proj-meta-item"><span class="proj-meta-label">Category</span><span class="proj-meta-val">RAG & Semantic Scoring</span></span>
+          </div>
           <p class="proj-desc">FastAPI + ChromaDB PoC extracting 5W1H narrative structure from books, scoring children's reading comprehension via chat iterations against embedded grammar.</p>
-          <div class="proj-badges"><span class="proj-badge">ChromaDB</span> <span class="proj-badge">Pinecone</span> <span class="proj-badge">FastAPI</span> <span class="proj-badge">OpenAI</span></div>
+          <div class="proj-tools-row"><span class="proj-meta-label">Tools</span><div class="proj-badges"><span class="proj-badge">ChromaDB</span> <span class="proj-badge">Pinecone</span> <span class="proj-badge">FastAPI</span> <span class="proj-badge">OpenAI</span></div></div>
           <div class="proj-metric">✦ Semantic comprehension scoring</div>
         </div>
         <div class="proj-card">
@@ -550,8 +718,13 @@ footer{text-align:center;padding:36px;color:var(--muted);font-size:.82rem;border
               <a href="https://sandyyy123.github.io/mlops-federated-learning-platform/" target="_blank" class="proj-link proj-link-live">Live Demo</a>
             </div>
           </div>
+          <div class="proj-meta">
+            <span class="proj-meta-item"><span class="proj-meta-label">Domain</span><span class="proj-meta-val" style="color:#a78bfa">LLM & Generative AI</span></span>
+            <span class="proj-meta-sep">·</span>
+            <span class="proj-meta-item"><span class="proj-meta-label">Category</span><span class="proj-meta-val">Federated Learning / MLOps</span></span>
+          </div>
           <p class="proj-desc">End-to-end MLOps: federated learning (Flower FedAvg), MLflow registry, FastAPI serving, GitHub Actions CI/CD, and Prometheus/Grafana drift monitoring. No raw data leaves nodes.</p>
-          <div class="proj-badges"><span class="proj-badge">Flower flwr</span> <span class="proj-badge">MLflow</span> <span class="proj-badge">Docker</span> <span class="proj-badge">Prometheus</span></div>
+          <div class="proj-tools-row"><span class="proj-meta-label">Tools</span><div class="proj-badges"><span class="proj-badge">Flower flwr</span> <span class="proj-badge">MLflow</span> <span class="proj-badge">Docker</span> <span class="proj-badge">Prometheus</span></div></div>
           <div class="proj-metric">✦ Full CI/CD · federated privacy · Grafana monitoring</div>
         </div>
         <div class="proj-card">
@@ -562,8 +735,13 @@ footer{text-align:center;padding:36px;color:var(--muted);font-size:.82rem;border
               <a href="https://sandyyy123.github.io/lora-ollama-deploy/" target="_blank" class="proj-link proj-link-live">Live Demo</a>
             </div>
           </div>
+          <div class="proj-meta">
+            <span class="proj-meta-item"><span class="proj-meta-label">Domain</span><span class="proj-meta-val" style="color:#a78bfa">LLM & Generative AI</span></span>
+            <span class="proj-meta-sep">·</span>
+            <span class="proj-meta-item"><span class="proj-meta-label">Category</span><span class="proj-meta-val">LoRA Fine-Tuning & Deployment</span></span>
+          </div>
           <p class="proj-desc">Fine-tune any causal LLM with LoRA/QLoRA, convert to Q4_K_M GGUF, deploy via Ollama REST API on consumer hardware. Supports Llama 3, Mistral, Phi-3, Gemma 2, Qwen 2.5.</p>
-          <div class="proj-badges"><span class="proj-badge">PEFT LoRA</span> <span class="proj-badge">QLoRA</span> <span class="proj-badge">llama.cpp</span> <span class="proj-badge">Ollama</span></div>
+          <div class="proj-tools-row"><span class="proj-meta-label">Tools</span><div class="proj-badges"><span class="proj-badge">PEFT LoRA</span> <span class="proj-badge">QLoRA</span> <span class="proj-badge">llama.cpp</span> <span class="proj-badge">Ollama</span></div></div>
           <div class="proj-metric">✦ 8-12GB VRAM (QLoRA 7B) · ~4.5GB inference</div>
         </div>
         <div class="proj-card">
@@ -574,8 +752,13 @@ footer{text-align:center;padding:36px;color:var(--muted);font-size:.82rem;border
               <a href="https://sandyyy123.github.io/langgraph-composio-agents/" target="_blank" class="proj-link proj-link-live">Live Demo</a>
             </div>
           </div>
+          <div class="proj-meta">
+            <span class="proj-meta-item"><span class="proj-meta-label">Domain</span><span class="proj-meta-val" style="color:#a78bfa">LLM & Generative AI</span></span>
+            <span class="proj-meta-sep">·</span>
+            <span class="proj-meta-item"><span class="proj-meta-label">Category</span><span class="proj-meta-val">Multi-Agent Workflows</span></span>
+          </div>
           <p class="proj-desc">10 production agentic workflows: sales lead triage, support resolver, recruiter pipeline, compliance reviewer, IT helpdesk — using LangGraph supervisor-worker with Composio OAuth.</p>
-          <div class="proj-badges"><span class="proj-badge">LangGraph</span> <span class="proj-badge">Composio</span> <span class="proj-badge">GPT-4o</span> <span class="proj-badge">presidio</span></div>
+          <div class="proj-tools-row"><span class="proj-meta-label">Tools</span><div class="proj-badges"><span class="proj-badge">LangGraph</span> <span class="proj-badge">Composio</span> <span class="proj-badge">GPT-4o</span> <span class="proj-badge">presidio</span></div></div>
           <div class="proj-metric">✦ 10 agents · 6 SaaS integrations · PII masking</div>
         </div>
         <div class="proj-card">
@@ -586,8 +769,13 @@ footer{text-align:center;padding:36px;color:var(--muted);font-size:.82rem;border
               <a href="https://sandyyy123.github.io/gemma4-finetune-pipeline/" target="_blank" class="proj-link proj-link-live">Live Demo</a>
             </div>
           </div>
+          <div class="proj-meta">
+            <span class="proj-meta-item"><span class="proj-meta-label">Domain</span><span class="proj-meta-val" style="color:#a78bfa">LLM & Generative AI</span></span>
+            <span class="proj-meta-sep">·</span>
+            <span class="proj-meta-item"><span class="proj-meta-label">Category</span><span class="proj-meta-val">LLM Fine-Tuning</span></span>
+          </div>
           <p class="proj-desc">SFT pipeline for Gemma4: per-token thinking-channel loss masking, QLoRA, cloud deployment scripts for RunPod / Vast.ai / UpCloud. Debug evaluation for chain-of-thought.</p>
-          <div class="proj-badges"><span class="proj-badge">Gemma4</span> <span class="proj-badge">QLoRA</span> <span class="proj-badge">SFTTrainer</span> <span class="proj-badge">RunPod</span></div>
+          <div class="proj-tools-row"><span class="proj-meta-label">Tools</span><div class="proj-badges"><span class="proj-badge">Gemma4</span> <span class="proj-badge">QLoRA</span> <span class="proj-badge">SFTTrainer</span> <span class="proj-badge">RunPod</span></div></div>
           <div class="proj-metric">✦ Thinking-channel supervision · cloud deploy scripts</div>
         </div>
         <div class="proj-card">
@@ -598,8 +786,13 @@ footer{text-align:center;padding:36px;color:var(--muted);font-size:.82rem;border
               <a href="https://sandyyy123.github.io/pharma-ai-monitor/" target="_blank" class="proj-link proj-link-live">Live Demo</a>
             </div>
           </div>
+          <div class="proj-meta">
+            <span class="proj-meta-item"><span class="proj-meta-label">Domain</span><span class="proj-meta-val" style="color:#a78bfa">LLM & Generative AI</span></span>
+            <span class="proj-meta-sep">·</span>
+            <span class="proj-meta-item"><span class="proj-meta-label">Category</span><span class="proj-meta-val">Hallucination Detection</span></span>
+          </div>
           <p class="proj-desc">Scores AI-generated pharmaceutical information against FDA drug label claims. Detects hallucinations and factual drift using 5 independent judge strategies: LLM, NLI, entity, zero-shot, rubric.</p>
-          <div class="proj-badges"><span class="proj-badge">GPT-4o</span> <span class="proj-badge">openFDA</span> <span class="proj-badge">SBERT NLI</span></div>
+          <div class="proj-tools-row"><span class="proj-meta-label">Tools</span><div class="proj-badges"><span class="proj-badge">GPT-4o</span> <span class="proj-badge">openFDA</span> <span class="proj-badge">SBERT NLI</span></div></div>
           <div class="proj-metric">✦ 5 independent scoring strategies · HTML dashboard</div>
         </div>
         <div class="proj-card">
@@ -610,8 +803,13 @@ footer{text-align:center;padding:36px;color:var(--muted);font-size:.82rem;border
               <a href="https://sandyyy123.github.io/manufacturing-b2b-ai-automation/" target="_blank" class="proj-link proj-link-live">Live Demo</a>
             </div>
           </div>
+          <div class="proj-meta">
+            <span class="proj-meta-item"><span class="proj-meta-label">Domain</span><span class="proj-meta-val" style="color:#a78bfa">LLM & Generative AI</span></span>
+            <span class="proj-meta-sep">·</span>
+            <span class="proj-meta-item"><span class="proj-meta-label">Category</span><span class="proj-meta-val">Agentic Automation</span></span>
+          </div>
           <p class="proj-desc">FastAPI system for B2B manufacturing: RFQ-to-quote automation, ML pricing intelligence, repeat-order detection, RAG over product catalogs with ERP/CRM integration.</p>
-          <div class="proj-badges"><span class="proj-badge">FastAPI</span> <span class="proj-badge">LangChain</span> <span class="proj-badge">ChromaDB</span> <span class="proj-badge">GPT-4</span></div>
+          <div class="proj-tools-row"><span class="proj-meta-label">Tools</span><div class="proj-badges"><span class="proj-badge">FastAPI</span> <span class="proj-badge">LangChain</span> <span class="proj-badge">ChromaDB</span> <span class="proj-badge">GPT-4</span></div></div>
           <div class="proj-metric">✦ RFQ parsing · quote gen · repeat order detection</div>
         </div>
         <div class="proj-card">
@@ -622,8 +820,13 @@ footer{text-align:center;padding:36px;color:var(--muted);font-size:.82rem;border
               <a href="https://sandyyy123.github.io/bi-migration-ai-demo/" target="_blank" class="proj-link proj-link-live">Live Demo</a>
             </div>
           </div>
+          <div class="proj-meta">
+            <span class="proj-meta-item"><span class="proj-meta-label">Domain</span><span class="proj-meta-val" style="color:#a78bfa">LLM & Generative AI</span></span>
+            <span class="proj-meta-sep">·</span>
+            <span class="proj-meta-item"><span class="proj-meta-label">Category</span><span class="proj-meta-val">AI-Assisted BI Migration</span></span>
+          </div>
           <p class="proj-desc">AI-powered BI migration platform: FastAPI + Claude agents + Neo4j lineage graph. Automates dashboard/report translation across BI tools with impact analysis.</p>
-          <div class="proj-badges"><span class="proj-badge">FastAPI</span> <span class="proj-badge">Claude API</span> <span class="proj-badge">Neo4j</span></div>
+          <div class="proj-tools-row"><span class="proj-meta-label">Tools</span><div class="proj-badges"><span class="proj-badge">FastAPI</span> <span class="proj-badge">Claude API</span> <span class="proj-badge">Neo4j</span></div></div>
           <div class="proj-metric">✦ Lineage graph · agent-driven migration</div>
         </div>
         </div>
@@ -645,8 +848,13 @@ footer{text-align:center;padding:36px;color:var(--muted);font-size:.82rem;border
               <a href="https://sandyyy123.github.io/rcm-audit-toolkit/" target="_blank" class="proj-link proj-link-live">Live Demo</a>
             </div>
           </div>
+          <div class="proj-meta">
+            <span class="proj-meta-item"><span class="proj-meta-label">Domain</span><span class="proj-meta-val" style="color:#f97316">Business Intelligence & Analytics</span></span>
+            <span class="proj-meta-sep">·</span>
+            <span class="proj-meta-item"><span class="proj-meta-label">Category</span><span class="proj-meta-val">Revenue Cycle Audit</span></span>
+          </div>
           <p class="proj-desc">Revenue cycle audit for mental health practices: reconciles sessions vs billed vs paid, identifies claims leakage, denial patterns, and TIQ autopay gaps. Excel + HTML reports.</p>
-          <div class="proj-badges"><span class="proj-badge">pandas</span> <span class="proj-badge">TIQ integration</span> <span class="proj-badge">openpyxl</span></div>
+          <div class="proj-tools-row"><span class="proj-meta-label">Tools</span><div class="proj-badges"><span class="proj-badge">pandas</span> <span class="proj-badge">TIQ integration</span> <span class="proj-badge">openpyxl</span></div></div>
           <div class="proj-metric">✦ Claims leakage detection · billing reconciliation</div>
         </div>
         <div class="proj-card">
@@ -657,8 +865,13 @@ footer{text-align:center;padding:36px;color:var(--muted);font-size:.82rem;border
               <a href="https://sandyyy123.github.io/customer-lead-profiler/" target="_blank" class="proj-link proj-link-live">Live Demo</a>
             </div>
           </div>
+          <div class="proj-meta">
+            <span class="proj-meta-item"><span class="proj-meta-label">Domain</span><span class="proj-meta-val" style="color:#f97316">Business Intelligence & Analytics</span></span>
+            <span class="proj-meta-sep">·</span>
+            <span class="proj-meta-item"><span class="proj-meta-label">Category</span><span class="proj-meta-val">Customer Segmentation</span></span>
+          </div>
           <p class="proj-desc">CRM export analysis pipeline: K-Means customer segmentation, buyer vs non-buyer analysis, geographic growth opportunity mapping. Multi-sheet Excel dashboard output.</p>
-          <div class="proj-badges"><span class="proj-badge">K-Means</span> <span class="proj-badge">scipy</span> <span class="proj-badge">openpyxl</span></div>
+          <div class="proj-tools-row"><span class="proj-meta-label">Tools</span><div class="proj-badges"><span class="proj-badge">K-Means</span> <span class="proj-badge">scipy</span> <span class="proj-badge">openpyxl</span></div></div>
           <div class="proj-metric">✦ Segmentation · churn analysis · geo mapping</div>
         </div>
         <div class="proj-card">
@@ -669,8 +882,13 @@ footer{text-align:center;padding:36px;color:var(--muted);font-size:.82rem;border
               <a href="https://sandyyy123.github.io/posthog-attribution-analytics/" target="_blank" class="proj-link proj-link-live">Live Demo</a>
             </div>
           </div>
+          <div class="proj-meta">
+            <span class="proj-meta-item"><span class="proj-meta-label">Domain</span><span class="proj-meta-val" style="color:#f97316">Business Intelligence & Analytics</span></span>
+            <span class="proj-meta-sep">·</span>
+            <span class="proj-meta-item"><span class="proj-meta-label">Category</span><span class="proj-meta-val">Attribution Analytics</span></span>
+          </div>
           <p class="proj-desc">Multi-touch attribution, ICP segmentation, and SEO audit combining PostHog events, GA4 sessions, and Search Console data. UMAP-based cluster visualization in Looker Studio.</p>
-          <div class="proj-badges"><span class="proj-badge">PostHog</span> <span class="proj-badge">GA4 API</span> <span class="proj-badge">UMAP</span> <span class="proj-badge">K-Means</span></div>
+          <div class="proj-tools-row"><span class="proj-meta-label">Tools</span><div class="proj-badges"><span class="proj-badge">PostHog</span> <span class="proj-badge">GA4 API</span> <span class="proj-badge">UMAP</span> <span class="proj-badge">K-Means</span></div></div>
           <div class="proj-metric">✦ 5-8 ICP segments · Top 50 SEO pages</div>
         </div>
         </div>
@@ -692,8 +910,13 @@ footer{text-align:center;padding:36px;color:var(--muted);font-size:.82rem;border
               <a href="https://sandyyy123.github.io/print-design-portfolio/" target="_blank" class="proj-link proj-link-live">Live Demo</a>
             </div>
           </div>
+          <div class="proj-meta">
+            <span class="proj-meta-item"><span class="proj-meta-label">Domain</span><span class="proj-meta-val" style="color:#14b8a6">Content & Publishing AI</span></span>
+            <span class="proj-meta-sep">·</span>
+            <span class="proj-meta-item"><span class="proj-meta-label">Category</span><span class="proj-meta-val">Programmatic Print Design</span></span>
+          </div>
           <p class="proj-desc">Three programmatic print designs: A3 clinical trial monitoring forms, 4-page industrial B2B brochure, luxury real estate brand suite. Generated from HTML/CSS source — fully reproducible.</p>
-          <div class="proj-badges"><span class="proj-badge">WeasyPrint</span> <span class="proj-badge">HTML/CSS</span> <span class="proj-badge">python-pptx</span></div>
+          <div class="proj-tools-row"><span class="proj-meta-label">Tools</span><div class="proj-badges"><span class="proj-badge">WeasyPrint</span> <span class="proj-badge">HTML/CSS</span> <span class="proj-badge">python-pptx</span></div></div>
           <div class="proj-metric">✦ Code-generated · print-ready PDF</div>
         </div>
         <div class="proj-card">
@@ -704,8 +927,13 @@ footer{text-align:center;padding:36px;color:var(--muted);font-size:.82rem;border
               <a href="https://sandyyy123.github.io/kids-activity-book-samples/" target="_blank" class="proj-link proj-link-live">Live Demo</a>
             </div>
           </div>
+          <div class="proj-meta">
+            <span class="proj-meta-item"><span class="proj-meta-label">Domain</span><span class="proj-meta-val" style="color:#14b8a6">Content & Publishing AI</span></span>
+            <span class="proj-meta-sep">·</span>
+            <span class="proj-meta-item"><span class="proj-meta-label">Category</span><span class="proj-meta-val">Children's Publishing</span></span>
+          </div>
           <p class="proj-desc">KDP-ready activity books for boys 8-12: National Parks, space exploration, world wonders. Strict 7-element page template, Flesch-Kincaid Grade 4-6, 100-120 pages.</p>
-          <div class="proj-badges"><span class="proj-badge">KDP publishing</span> <span class="proj-badge">FK Grade 4-6</span> <span class="proj-badge">NPS/NASA verified</span></div>
+          <div class="proj-tools-row"><span class="proj-meta-label">Tools</span><div class="proj-badges"><span class="proj-badge">KDP publishing</span> <span class="proj-badge">FK Grade 4-6</span> <span class="proj-badge">NPS/NASA verified</span></div></div>
           <div class="proj-metric">✦ Grade 4-6 reading level · 100-120 pages</div>
         </div>
         <div class="proj-card">
@@ -716,8 +944,13 @@ footer{text-align:center;padding:36px;color:var(--muted);font-size:.82rem;border
               <a href="https://sandyyy123.github.io/health-cookbook-samples/" target="_blank" class="proj-link proj-link-live">Live Demo</a>
             </div>
           </div>
+          <div class="proj-meta">
+            <span class="proj-meta-item"><span class="proj-meta-label">Domain</span><span class="proj-meta-val" style="color:#14b8a6">Content & Publishing AI</span></span>
+            <span class="proj-meta-sep">·</span>
+            <span class="proj-meta-item"><span class="proj-meta-label">Category</span><span class="proj-meta-val">Health & Wellness Books</span></span>
+          </div>
           <p class="proj-desc">KDP health cookbooks targeting adults 45+: liver-friendly recipes with strict 6-element template, nutrition cross-referencing, swap guides, and meal plans.</p>
-          <div class="proj-badges"><span class="proj-badge">KDP publishing</span> <span class="proj-badge">nutrition QC</span> <span class="proj-badge">accessible tone</span></div>
+          <div class="proj-tools-row"><span class="proj-meta-label">Tools</span><div class="proj-badges"><span class="proj-badge">KDP publishing</span> <span class="proj-badge">nutrition QC</span> <span class="proj-badge">accessible tone</span></div></div>
           <div class="proj-metric">✦ Liver-friendly · adults 45+ · meal plans</div>
         </div>
         <div class="proj-card">
@@ -728,8 +961,13 @@ footer{text-align:center;padding:36px;color:var(--muted);font-size:.82rem;border
               <a href="https://sandyyy123.github.io/teen-nonfiction-samples/" target="_blank" class="proj-link proj-link-live">Live Demo</a>
             </div>
           </div>
+          <div class="proj-meta">
+            <span class="proj-meta-item"><span class="proj-meta-label">Domain</span><span class="proj-meta-val" style="color:#14b8a6">Content & Publishing AI</span></span>
+            <span class="proj-meta-sep">·</span>
+            <span class="proj-meta-item"><span class="proj-meta-label">Category</span><span class="proj-meta-val">Teen Educational Content</span></span>
+          </div>
           <p class="proj-desc">KDP teen nonfiction (ages 13-18): driving safety and life-skills guide with older-sibling conversational tone, consistent module structure, human QC.</p>
-          <div class="proj-badges"><span class="proj-badge">KDP publishing</span> <span class="proj-badge">ages 13-18</span> <span class="proj-badge">module structure</span></div>
+          <div class="proj-tools-row"><span class="proj-meta-label">Tools</span><div class="proj-badges"><span class="proj-badge">KDP publishing</span> <span class="proj-badge">ages 13-18</span> <span class="proj-badge">module structure</span></div></div>
           <div class="proj-metric">✦ Conversational · modular · driving/life skills</div>
         </div>
         </div>
@@ -751,8 +989,13 @@ footer{text-align:center;padding:36px;color:var(--muted);font-size:.82rem;border
               <a href="https://sandyyy123.github.io/vehicle-co2-emissions-regression/" target="_blank" class="proj-link proj-link-live">Live Demo</a>
             </div>
           </div>
+          <div class="proj-meta">
+            <span class="proj-meta-item"><span class="proj-meta-label">Domain</span><span class="proj-meta-val" style="color:#64748b">Analytical Tools & Simulations</span></span>
+            <span class="proj-meta-sep">·</span>
+            <span class="proj-meta-item"><span class="proj-meta-label">Category</span><span class="proj-meta-val">Emissions Regression</span></span>
+          </div>
           <p class="proj-desc">Predicts CO2 emissions (g/km) from vehicle specifications using XGBoost with polynomial/interaction features. Framed against EU Fleet CO2 Regulation 2019/631.</p>
-          <div class="proj-badges"><span class="proj-badge">XGBoost</span> <span class="proj-badge">EU reg. 2019/631</span> <span class="proj-badge">residual analysis</span></div>
+          <div class="proj-tools-row"><span class="proj-meta-label">Tools</span><div class="proj-badges"><span class="proj-badge">XGBoost</span> <span class="proj-badge">EU reg. 2019/631</span> <span class="proj-badge">residual analysis</span></div></div>
           <div class="proj-metric">✦ Prediction intervals · fleet compliance context</div>
         </div>
         <div class="proj-card">
@@ -763,8 +1006,13 @@ footer{text-align:center;padding:36px;color:var(--muted);font-size:.82rem;border
               <a href="https://sandyyy123.github.io/french-road-accident-classifier/" target="_blank" class="proj-link proj-link-live">Live Demo</a>
             </div>
           </div>
+          <div class="proj-meta">
+            <span class="proj-meta-item"><span class="proj-meta-label">Domain</span><span class="proj-meta-val" style="color:#64748b">Analytical Tools & Simulations</span></span>
+            <span class="proj-meta-sep">·</span>
+            <span class="proj-meta-item"><span class="proj-meta-label">Category</span><span class="proj-meta-val">Safety Classification</span></span>
+          </div>
           <p class="proj-desc">4-class accident severity classification on French BAAC data (700K+ accidents/year) with SMOTE imbalance handling and SHAP-based interpretability for road safety policy.</p>
-          <div class="proj-badges"><span class="proj-badge">XGBoost</span> <span class="proj-badge">SMOTE</span> <span class="proj-badge">SHAP</span></div>
+          <div class="proj-tools-row"><span class="proj-meta-label">Tools</span><div class="proj-badges"><span class="proj-badge">XGBoost</span> <span class="proj-badge">SMOTE</span> <span class="proj-badge">SHAP</span></div></div>
           <div class="proj-metric">✦ 700K+ accidents/yr · 4-class severity</div>
         </div>
         <div class="proj-card">
@@ -775,8 +1023,13 @@ footer{text-align:center;padding:36px;color:var(--muted);font-size:.82rem;border
               <a href="https://sandyyy123.github.io/cdegs-grounding-analysis/" target="_blank" class="proj-link proj-link-live">Live Demo</a>
             </div>
           </div>
+          <div class="proj-meta">
+            <span class="proj-meta-item"><span class="proj-meta-label">Domain</span><span class="proj-meta-val" style="color:#64748b">Analytical Tools & Simulations</span></span>
+            <span class="proj-meta-sep">·</span>
+            <span class="proj-meta-item"><span class="proj-meta-label">Category</span><span class="proj-meta-val">Electrical Safety Analysis</span></span>
+          </div>
           <p class="proj-desc">Post-processing suite for CDEGS electromagnetic/grounding simulation outputs. Applies IEEE 80 and IEC 60479 safety thresholds, generates PDF engineering reports.</p>
-          <div class="proj-badges"><span class="proj-badge">IEEE 80</span> <span class="proj-badge">IEC 60479</span> <span class="proj-badge">reportlab</span></div>
+          <div class="proj-tools-row"><span class="proj-meta-label">Tools</span><div class="proj-badges"><span class="proj-badge">IEEE 80</span> <span class="proj-badge">IEC 60479</span> <span class="proj-badge">reportlab</span></div></div>
           <div class="proj-metric">✦ Transmission line safety · PDF reports</div>
         </div>
         <div class="proj-card">
@@ -787,8 +1040,13 @@ footer{text-align:center;padding:36px;color:var(--muted);font-size:.82rem;border
               <a href="https://sandyyy123.github.io/qualitative-analysis-toolkit/" target="_blank" class="proj-link proj-link-live">Live Demo</a>
             </div>
           </div>
+          <div class="proj-meta">
+            <span class="proj-meta-item"><span class="proj-meta-label">Domain</span><span class="proj-meta-val" style="color:#64748b">Analytical Tools & Simulations</span></span>
+            <span class="proj-meta-sep">·</span>
+            <span class="proj-meta-item"><span class="proj-meta-label">Category</span><span class="proj-meta-val">Thematic Analysis</span></span>
+          </div>
           <p class="proj-desc">Parses MAXQDA .qdpx exports (REFI-QDA standard), builds codebooks, and produces frequency/cross-tabulation reports with interactive HTML. Supports Braun &amp; Clarke / IPA.</p>
-          <div class="proj-badges"><span class="proj-badge">REFI-QDA</span> <span class="proj-badge">pandas</span> <span class="proj-badge">openpyxl</span></div>
+          <div class="proj-tools-row"><span class="proj-meta-label">Tools</span><div class="proj-badges"><span class="proj-badge">REFI-QDA</span> <span class="proj-badge">pandas</span> <span class="proj-badge">openpyxl</span></div></div>
           <div class="proj-metric">✦ MAXQDA/NVivo/Atlas.ti · thematic analysis</div>
         </div>
         </div>
