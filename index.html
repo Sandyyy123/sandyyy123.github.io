@@ -1,0 +1,1233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sandeep Grover — AI/ML Portfolio</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<style>
+  :root {
+    --accent: #6366f1;
+    --accent2: #8b5cf6;
+    --glow: rgba(99,102,241,0.35);
+  }
+  body { background: #06070f; color: #e2e8f0; font-family: 'Inter', system-ui, sans-serif; }
+  .hero-bg {
+    background: radial-gradient(ellipse 80% 60% at 50% -10%, rgba(99,102,241,0.18) 0%, transparent 70%),
+                radial-gradient(ellipse 50% 40% at 80% 30%, rgba(139,92,246,0.12) 0%, transparent 60%),
+                #06070f;
+  }
+  .card {
+    background: rgba(15,17,32,0.85);
+    border: 1px solid rgba(99,102,241,0.15);
+    border-radius: 14px;
+    transition: transform 0.2s, border-color 0.2s, box-shadow 0.2s;
+  }
+  .card:hover {
+    transform: translateY(-4px);
+    border-color: rgba(99,102,241,0.55);
+    box-shadow: 0 8px 32px rgba(99,102,241,0.18);
+  }
+  .badge {
+    font-size: 0.68rem; font-weight: 600; padding: 2px 8px;
+    border-radius: 999px; white-space: nowrap;
+    background: rgba(99,102,241,0.15); color: #a5b4fc;
+    border: 1px solid rgba(99,102,241,0.25);
+  }
+  .cat-btn {
+    padding: 6px 16px; border-radius: 999px; font-size: 0.82rem; font-weight: 600;
+    border: 1px solid rgba(99,102,241,0.3); background: transparent; color: #94a3b8;
+    cursor: pointer; transition: all 0.18s;
+  }
+  .cat-btn:hover, .cat-btn.active {
+    background: var(--accent); color: #fff; border-color: var(--accent);
+    box-shadow: 0 0 12px var(--glow);
+  }
+  .metric-chip {
+    font-size: 0.72rem; padding: 3px 9px; border-radius: 999px;
+    background: rgba(16,185,129,0.12); color: #6ee7b7;
+    border: 1px solid rgba(16,185,129,0.25);
+  }
+  .demo-panel {
+    background: rgba(10,12,24,0.95);
+    border: 1px solid rgba(99,102,241,0.2);
+    border-radius: 16px; padding: 28px;
+  }
+  .demo-input {
+    width: 100%; padding: 10px 14px;
+    background: rgba(30,33,58,0.8); border: 1px solid rgba(99,102,241,0.3);
+    border-radius: 8px; color: #e2e8f0; font-size: 0.9rem; outline: none;
+  }
+  .demo-input:focus { border-color: var(--accent); box-shadow: 0 0 0 3px var(--glow); }
+  .demo-btn {
+    padding: 10px 22px; background: var(--accent); color: #fff;
+    border: none; border-radius: 8px; font-weight: 600; cursor: pointer;
+    transition: opacity 0.15s, transform 0.1s;
+  }
+  .demo-btn:hover { opacity: 0.88; transform: scale(1.02); }
+  .result-box {
+    background: rgba(99,102,241,0.08); border: 1px solid rgba(99,102,241,0.2);
+    border-radius: 10px; padding: 16px; margin-top: 14px; font-size: 0.85rem;
+  }
+  .stat-number { font-size: 2.4rem; font-weight: 800; background: linear-gradient(135deg, #6366f1, #a78bfa); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+  .gh-link { color: #818cf8; text-decoration: none; font-size: 0.78rem; font-weight: 500; }
+  .gh-link:hover { color: #a5b4fc; text-decoration: underline; }
+  .section-title { font-size: 1.1rem; font-weight: 700; color: #818cf8; letter-spacing: 0.06em; text-transform: uppercase; margin-bottom: 20px; }
+  .tab-btn { padding: 8px 20px; border-radius: 8px 8px 0 0; font-size: 0.85rem; font-weight: 600; border: 1px solid rgba(99,102,241,0.2); border-bottom: none; cursor: pointer; transition: all 0.15s; }
+  .tab-btn.active { background: rgba(99,102,241,0.18); color: #a5b4fc; }
+  .tab-btn:not(.active) { background: transparent; color: #64748b; }
+  .progress-bar-bg { background: rgba(99,102,241,0.12); border-radius: 999px; height: 7px; overflow: hidden; }
+  .progress-bar-fill { height: 100%; background: linear-gradient(90deg, #6366f1, #a78bfa); border-radius: 999px; transition: width 1s ease; }
+  @keyframes fadeIn { from { opacity:0; transform: translateY(10px); } to { opacity:1; transform: translateY(0); } }
+  .fade-in { animation: fadeIn 0.35s ease forwards; }
+  .hidden-card { display: none; }
+  canvas { background: rgba(15,17,32,0.6); border-radius: 10px; }
+</style>
+</head>
+<body class="hero-bg min-h-screen">
+
+<!-- NAV -->
+<nav class="sticky top-0 z-50 border-b border-white/5 backdrop-blur-md" style="background:rgba(6,7,15,0.85)">
+  <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+    <div class="flex items-center gap-3">
+      <div class="w-9 h-9 rounded-xl flex items-center justify-center text-lg font-bold" style="background:linear-gradient(135deg,#6366f1,#8b5cf6)">SG</div>
+      <span class="font-bold text-white text-lg">Sandeep Grover</span>
+      <span class="hidden sm:block text-xs text-slate-500 mt-0.5 ml-1">AI/ML Engineer &amp; Data Scientist</span>
+    </div>
+    <div class="flex items-center gap-4">
+      <a href="https://github.com/Sandyyy123" target="_blank" class="gh-link flex items-center gap-1.5">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
+        GitHub
+      </a>
+      <a href="https://linkedin.com/in/sandeep-grover-b3192a16" target="_blank" class="gh-link flex items-center gap-1.5">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+        LinkedIn
+      </a>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="max-w-7xl mx-auto px-6 py-20 text-center">
+  <div class="inline-block mb-4 px-4 py-1.5 rounded-full text-xs font-semibold" style="background:rgba(99,102,241,0.15);color:#a5b4fc;border:1px solid rgba(99,102,241,0.3)">
+    Production-grade AI/ML · Open Source
+  </div>
+  <h1 class="text-5xl sm:text-6xl font-extrabold text-white mb-5 leading-tight">
+    AI &amp; ML Project<br>
+    <span style="background:linear-gradient(135deg,#6366f1,#a78bfa,#ec4899);-webkit-background-clip:text;-webkit-text-fill-color:transparent">Portfolio</span>
+  </h1>
+  <p class="text-lg text-slate-400 max-w-2xl mx-auto mb-10">
+    50 production-ready repositories spanning financial AI, medical imaging, NLP, time-series forecasting, MLOps, and LLM infrastructure — each with full pipelines, benchmarked results, and real-world data.
+  </p>
+  <!-- STATS -->
+  <div class="grid grid-cols-2 sm:grid-cols-4 gap-6 max-w-3xl mx-auto mb-12">
+    <div class="card p-5">
+      <div class="stat-number">50</div>
+      <div class="text-slate-400 text-sm mt-1">Public Repos</div>
+    </div>
+    <div class="card p-5">
+      <div class="stat-number">10</div>
+      <div class="text-slate-400 text-sm mt-1">Domains</div>
+    </div>
+    <div class="card p-5">
+      <div class="stat-number">97%</div>
+      <div class="text-slate-400 text-sm mt-1">Best Accuracy</div>
+    </div>
+    <div class="card p-5">
+      <div class="stat-number">12+</div>
+      <div class="text-slate-400 text-sm mt-1">Years Experience</div>
+    </div>
+  </div>
+  <!-- CATEGORY FILTER -->
+  <div id="filter-bar" class="flex flex-wrap justify-center gap-2">
+    <button class="cat-btn active" onclick="filterCards('all', this)">All 50</button>
+    <button class="cat-btn" onclick="filterCards('finance', this)">Finance &amp; Trading</button>
+    <button class="cat-btn" onclick="filterCards('health', this)">Healthcare AI</button>
+    <button class="cat-btn" onclick="filterCards('cv', this)">Computer Vision</button>
+    <button class="cat-btn" onclick="filterCards('nlp', this)">NLP &amp; Text</button>
+    <button class="cat-btn" onclick="filterCards('ts', this)">Time-Series</button>
+    <button class="cat-btn" onclick="filterCards('recsys', this)">RecSys</button>
+    <button class="cat-btn" onclick="filterCards('mlops', this)">MLOps &amp; LLMs</button>
+    <button class="cat-btn" onclick="filterCards('biz', this)">Business AI</button>
+    <button class="cat-btn" onclick="filterCards('content', this)">Content</button>
+    <button class="cat-btn" onclick="filterCards('tools', this)">Tools</button>
+  </div>
+</section>
+
+<!-- PROJECTS GRID -->
+<section class="max-w-7xl mx-auto px-6 pb-12">
+  <div id="cards-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+
+    <!-- ====== FINANCE & TRADING (9) ====== -->
+    <div class="card p-5 fade-in" data-cat="finance">
+      <div class="flex items-start justify-between mb-3">
+        <span class="text-lg font-bold text-white leading-tight">Trading Pattern Research DB</span>
+        <a href="https://github.com/Sandyyy123/trading-pattern-research-db" target="_blank" class="gh-link ml-2 shrink-0">↗ GitHub</a>
+      </div>
+      <p class="text-slate-400 text-sm mb-3">Statistical backtesting engine: TradingView CSV → SQLite → p-value validated edges. Identifies chart patterns with genuine statistical significance.</p>
+      <div class="flex flex-wrap gap-1.5 mb-3">
+        <span class="badge">SQLite</span><span class="badge">pandas</span><span class="badge">YAML config</span><span class="badge">statistics</span>
+      </div>
+      <div class="metric-chip inline-block">67% win rate · p=0.003 (sample pattern)</div>
+    </div>
+
+    <div class="card p-5 fade-in" data-cat="finance">
+      <div class="flex items-start justify-between mb-3">
+        <span class="text-lg font-bold text-white leading-tight">IEEE-CIS Fraud Detection</span>
+        <a href="https://github.com/Sandyyy123/ieee-fraud-detection" target="_blank" class="gh-link ml-2 shrink-0">↗ GitHub</a>
+      </div>
+      <p class="text-slate-400 text-sm mb-3">Two-stage pipeline on 590K+ transactions: LightGBM tabular baseline + GraphSAGE GNN on card-merchant-device graph. EU AI Act / BaFin compliance framing.</p>
+      <div class="flex flex-wrap gap-1.5 mb-3">
+        <span class="badge">LightGBM</span><span class="badge">PyG</span><span class="badge">CatBoost</span><span class="badge">GNN</span>
+      </div>
+      <div class="metric-chip inline-block">ROC-AUC + PR-AUC · GNN fallback if AUC &lt; 0.85</div>
+    </div>
+
+    <div class="card p-5 fade-in" data-cat="finance">
+      <div class="flex items-start justify-between mb-3">
+        <span class="text-lg font-bold text-white leading-tight">ML Trading Signal</span>
+        <a href="https://github.com/Sandyyy123/ml-trading-signal" target="_blank" class="gh-link ml-2 shrink-0">↗ GitHub</a>
+      </div>
+      <p class="text-slate-400 text-sm mb-3">LSTM + Random Forest ensemble trading system with Alpaca API integration, ATR-based risk management, and walk-forward backtesting.</p>
+      <div class="flex flex-wrap gap-1.5 mb-3">
+        <span class="badge">PyTorch LSTM</span><span class="badge">Alpaca API</span><span class="badge">TA-Lib</span><span class="badge">Backtrader</span>
+      </div>
+      <div class="metric-chip inline-block">Sharpe 0.87 · Win Rate 63.2% · Annual +28.3%</div>
+    </div>
+
+    <div class="card p-5 fade-in" data-cat="finance">
+      <div class="flex items-start justify-between mb-3">
+        <span class="text-lg font-bold text-white leading-tight">XAUUSD Scalper Research</span>
+        <a href="https://github.com/Sandyyy123/xauusd-scalper-research" target="_blank" class="gh-link ml-2 shrink-0">↗ GitHub</a>
+      </div>
+      <p class="text-slate-400 text-sm mb-3">Gold scalping EA: Python backtest → MQL5 deployment. EMA/RSI/Stochastic/ATR strategy targeting high win rate with controlled drawdown.</p>
+      <div class="flex flex-wrap gap-1.5 mb-3">
+        <span class="badge">MQL5</span><span class="badge">MetaTrader 5</span><span class="badge">Walk-Forward</span>
+      </div>
+      <div class="metric-chip inline-block">Win 77.3% · Sharpe 1.87 · MaxDD 4.2%</div>
+    </div>
+
+    <div class="card p-5 fade-in" data-cat="finance">
+      <div class="flex items-start justify-between mb-3">
+        <span class="text-lg font-bold text-white leading-tight">ASC 718 Monte Carlo RSU</span>
+        <a href="https://github.com/Sandyyy123/asc718-monte-carlo-valuation" target="_blank" class="gh-link ml-2 shrink-0">↗ GitHub</a>
+      </div>
+      <p class="text-slate-400 text-sm mb-3">Audit-ready GBM Monte Carlo valuation for performance RSUs with consecutive-day price barriers. 100K simulation paths, 5 tranches, Big-4-auditable output.</p>
+      <div class="flex flex-wrap gap-1.5 mb-3">
+        <span class="badge">Monte Carlo</span><span class="badge">GBM</span><span class="badge">ASC 718</span><span class="badge">numpy</span>
+      </div>
+      <div class="metric-chip inline-block">100K GBM paths · 60-day consecutive barrier</div>
+    </div>
+
+    <div class="card p-5 fade-in" data-cat="finance">
+      <div class="flex items-start justify-between mb-3">
+        <span class="text-lg font-bold text-white leading-tight">OHLCV Market Data Pipeline</span>
+        <a href="https://github.com/Sandyyy123/ohlcv-market-data-pipeline" target="_blank" class="gh-link ml-2 shrink-0">↗ GitHub</a>
+      </div>
+      <p class="text-slate-400 text-sm mb-3">Production data engineering pipeline: Binance + Yahoo + CoinGecko → PostgreSQL. Great Expectations validation, gap detection, corporate-action adjustment.</p>
+      <div class="flex flex-wrap gap-1.5 mb-3">
+        <span class="badge">ccxt</span><span class="badge">Great Expectations</span><span class="badge">PostgreSQL</span>
+      </div>
+      <div class="metric-chip inline-block">Multi-source · timezone-aligned · schema-validated</div>
+    </div>
+
+    <div class="card p-5 fade-in" data-cat="finance">
+      <div class="flex items-start justify-between mb-3">
+        <span class="text-lg font-bold text-white leading-tight">Stock Portfolio Recommender</span>
+        <a href="https://github.com/Sandyyy123/stock-portfolio-recommender" target="_blank" class="gh-link ml-2 shrink-0">↗ GitHub</a>
+      </div>
+      <p class="text-slate-400 text-sm mb-3">Cluster-then-rank system: investor risk profiling → factor-scored stocks → mean-variance weight optimization. Backtested vs S&amp;P 500.</p>
+      <div class="flex flex-wrap gap-1.5 mb-3">
+        <span class="badge">cvxpy</span><span class="badge">yfinance</span><span class="badge">K-Means</span><span class="badge">MVO</span>
+      </div>
+      <div class="metric-chip inline-block">Sharpe/momentum/quality factors · Backtest vs SPY</div>
+    </div>
+
+    <div class="card p-5 fade-in" data-cat="finance">
+      <div class="flex items-start justify-between mb-3">
+        <span class="text-lg font-bold text-white leading-tight">Async Trading Audit Toolkit</span>
+        <a href="https://github.com/Sandyyy123/async-trading-audit" target="_blank" class="gh-link ml-2 shrink-0">↗ GitHub</a>
+      </div>
+      <p class="text-slate-400 text-sm mb-3">Python AST-based static analysis for asyncio crypto trading systems. Detects race conditions, blocking calls, CCXT anti-patterns, and order-state fragility.</p>
+      <div class="flex flex-wrap gap-1.5 mb-3">
+        <span class="badge">AST analysis</span><span class="badge">asyncio</span><span class="badge">CCXT</span>
+      </div>
+      <div class="metric-chip inline-block">Static analysis · zero runtime needed</div>
+    </div>
+
+    <div class="card p-5 fade-in" data-cat="finance">
+      <div class="flex items-start justify-between mb-3">
+        <span class="text-lg font-bold text-white leading-tight">Restaurant Causal Inference Demo</span>
+        <a href="https://github.com/Sandyyy123/restaurant-causal-inference-demo" target="_blank" class="gh-link ml-2 shrink-0">↗ GitHub</a>
+      </div>
+      <p class="text-slate-400 text-sm mb-3">DiD + two-way fixed effects measuring AI coaching lift on average check size across 6-7 restaurant locations, with synthetic control robustness check.</p>
+      <div class="flex flex-wrap gap-1.5 mb-3">
+        <span class="badge">DiD</span><span class="badge">statsmodels</span><span class="badge">Synthetic Control</span>
+      </div>
+      <div class="metric-chip inline-block">MDE ~$0.85 (~4.4% lift) · 80% power</div>
+    </div>
+
+    <!-- ====== HEALTHCARE AI (4) ====== -->
+    <div class="card p-5 fade-in" data-cat="health">
+      <div class="flex items-start justify-between mb-3">
+        <span class="text-lg font-bold text-white leading-tight">Clinical Image AI Pipeline</span>
+        <a href="https://github.com/Sandyyy123/clinical-image-ai" target="_blank" class="gh-link ml-2 shrink-0">↗ GitHub</a>
+      </div>
+      <p class="text-slate-400 text-sm mb-3">Batch clinical image enhancement: NLM denoising, CLAHE contrast, artifact suppression, per-channel normalization. ISO-compliant PDF reports with SNR/contrast metrics.</p>
+      <div class="flex flex-wrap gap-1.5 mb-3">
+        <span class="badge">OpenCV</span><span class="badge">scikit-image</span><span class="badge">fpdf2</span>
+      </div>
+      <div class="metric-chip inline-block">SNR &gt; 20 · contrast &gt; 40 compliance thresholds</div>
+    </div>
+
+    <div class="card p-5 fade-in" data-cat="health">
+      <div class="flex items-start justify-between mb-3">
+        <span class="text-lg font-bold text-white leading-tight">COVID Chest X-Ray Classifier</span>
+        <a href="https://github.com/Sandyyy123/covid-xray-classifier" target="_blank" class="gh-link ml-2 shrink-0">↗ GitHub</a>
+      </div>
+      <p class="text-slate-400 text-sm mb-3">3-class chest X-ray triage (COVID-19 / Viral Pneumonia / Normal) using EfficientNet-B4 with GradCAM saliency maps for radiologist-interpretable explanations.</p>
+      <div class="flex flex-wrap gap-1.5 mb-3">
+        <span class="badge">PyTorch</span><span class="badge">EfficientNet-B4</span><span class="badge">GradCAM</span>
+      </div>
+      <div class="metric-chip inline-block">AUC-ROC + sensitivity/specificity per class</div>
+    </div>
+
+    <div class="card p-5 fade-in" data-cat="health">
+      <div class="flex items-start justify-between mb-3">
+        <span class="text-lg font-bold text-white leading-tight">Pneumonia Detection CV</span>
+        <a href="https://github.com/Sandyyy123/pneumonia-detection-cv" target="_blank" class="gh-link ml-2 shrink-0">↗ GitHub</a>
+      </div>
+      <p class="text-slate-400 text-sm mb-3">Pneumonia opacity detection and localisation in chest X-rays using Faster R-CNN and RetinaNet on 26,684 RSNA 2018 challenge images.</p>
+      <div class="flex flex-wrap gap-1.5 mb-3">
+        <span class="badge">Faster R-CNN</span><span class="badge">RetinaNet</span><span class="badge">pydicom</span>
+      </div>
+      <div class="metric-chip inline-block">mAP@IoU[0.4:0.75] · RSNA 2018 benchmark</div>
+    </div>
+
+    <div class="card p-5 fade-in" data-cat="health">
+      <div class="flex items-start justify-between mb-3">
+        <span class="text-lg font-bold text-white leading-tight">Dental Loupe AI</span>
+        <a href="https://github.com/Sandyyy123/dental-loupe-ai" target="_blank" class="gh-link ml-2 shrink-0">↗ GitHub</a>
+      </div>
+      <p class="text-slate-400 text-sm mb-3">Real-time edge AI for dental operatories: MediaPipe ergonomics monitoring, Whisper voice charting, BLE/GPIO curing light control on Jetson Nano / RPi 5.</p>
+      <div class="flex flex-wrap gap-1.5 mb-3">
+        <span class="badge">MediaPipe</span><span class="badge">Whisper</span><span class="badge">TensorRT</span><span class="badge">BLE</span>
+      </div>
+      <div class="metric-chip inline-block">~18ms pose · ~45ms voice · &lt;80ms end-to-end</div>
+    </div>
+
+    <!-- ====== COMPUTER VISION (5) ====== -->
+    <div class="card p-5 fade-in" data-cat="cv">
+      <div class="flex items-start justify-between mb-3">
+        <span class="text-lg font-bold text-white leading-tight">Steel Defect Segmentation</span>
+        <a href="https://github.com/Sandyyy123/steel-defect-segmentation" target="_blank" class="gh-link ml-2 shrink-0">↗ GitHub</a>
+      </div>
+      <p class="text-slate-400 text-sm mb-3">Pixel-level semantic segmentation of 4 steel surface defect classes on Severstal manufacturing data using U-Net with EfficientNet-B4 encoder.</p>
+      <div class="flex flex-wrap gap-1.5 mb-3">
+        <span class="badge">PyTorch</span><span class="badge">U-Net</span><span class="badge">EfficientNet-B4</span><span class="badge">albumentations</span>
+      </div>
+      <div class="metric-chip inline-block">Mean Dice per defect class · Dice + BCE loss</div>
+    </div>
+
+    <div class="card p-5 fade-in" data-cat="cv">
+      <div class="flex items-start justify-between mb-3">
+        <span class="text-lg font-bold text-white leading-tight">Industrial Anomaly Detection</span>
+        <a href="https://github.com/Sandyyy123/industrial-anomaly-detection" target="_blank" class="gh-link ml-2 shrink-0">↗ GitHub</a>
+      </div>
+      <p class="text-slate-400 text-sm mb-3">Unsupervised surface defect detection using PatchCore (WideResNet memory bank) with pixel-level heatmaps. Autoencoder baseline included. Trains on normal images only.</p>
+      <div class="flex flex-wrap gap-1.5 mb-3">
+        <span class="badge">PatchCore</span><span class="badge">WideResNet</span><span class="badge">MVTec AD</span>
+      </div>
+      <div class="metric-chip inline-block">AUROC + PRO (Per-Region Overlap)</div>
+    </div>
+
+    <div class="card p-5 fade-in" data-cat="cv">
+      <div class="flex items-start justify-between mb-3">
+        <span class="text-lg font-bold text-white leading-tight">Form Understanding NER</span>
+        <a href="https://github.com/Sandyyy123/form-understanding-ner" target="_blank" class="gh-link ml-2 shrink-0">↗ GitHub</a>
+      </div>
+      <p class="text-slate-400 text-sm mb-3">Token-level entity tagging (question/answer/header/other) and key-value linking on scanned business forms using LayoutLM on the FUNSD benchmark.</p>
+      <div class="flex flex-wrap gap-1.5 mb-3">
+        <span class="badge">LayoutLM</span><span class="badge">pytesseract</span><span class="badge">FUNSD</span><span class="badge">seqeval</span>
+      </div>
+      <div class="metric-chip inline-block">F1 entity-level · FUNSD benchmark</div>
+    </div>
+
+    <div class="card p-5 fade-in" data-cat="cv">
+      <div class="flex items-start justify-between mb-3">
+        <span class="text-lg font-bold text-white leading-tight">Receipt OCR Key-Info Extraction</span>
+        <a href="https://github.com/Sandyyy123/receipt-ocr-key-info-extraction" target="_blank" class="gh-link ml-2 shrink-0">↗ GitHub</a>
+      </div>
+      <p class="text-slate-400 text-sm mb-3">Extracts company, date, address, and total from scanned receipts using Tesseract OCR + BERT NER pipeline on the ICDAR 2019 SROIE benchmark.</p>
+      <div class="flex flex-wrap gap-1.5 mb-3">
+        <span class="badge">pytesseract</span><span class="badge">BERT</span><span class="badge">LayoutLM</span><span class="badge">spaCy</span>
+      </div>
+      <div class="metric-chip inline-block">F1 score · ICDAR 2019 SROIE benchmark</div>
+    </div>
+
+    <div class="card p-5 fade-in" data-cat="cv">
+      <div class="flex items-start justify-between mb-3">
+        <span class="text-lg font-bold text-white leading-tight">Image Segmentation Grid</span>
+        <a href="https://github.com/Sandyyy123/image-segmentation-grid" target="_blank" class="gh-link ml-2 shrink-0">↗ GitHub</a>
+      </div>
+      <p class="text-slate-400 text-sm mb-3">Segments physical objects photographed on a 10mm calibration grid, corrects perspective, and exports real-world mm-coordinate outlines as SVG and DXF files.</p>
+      <div class="flex flex-wrap gap-1.5 mb-3">
+        <span class="badge">SAM</span><span class="badge">OpenCV</span><span class="badge">GrabCut</span><span class="badge">DXF export</span>
+      </div>
+      <div class="metric-chip inline-block">mm-precision outlines · CAD-ready SVG/DXF</div>
+    </div>
+
+    <!-- ====== NLP & TEXT AI (6) ====== -->
+    <div class="card p-5 fade-in" data-cat="nlp">
+      <div class="flex items-start justify-between mb-3">
+        <span class="text-lg font-bold text-white leading-tight">URL Threat Classifier</span>
+        <a href="https://github.com/Sandyyy123/url-threat-classifier" target="_blank" class="gh-link ml-2 shrink-0">↗ GitHub</a>
+      </div>
+      <p class="text-slate-400 text-sm mb-3">Real-time malicious URL detection: 33 lexical/structural features, XGBoost + LR ensemble, FastAPI endpoint with sub-50ms inference latency.</p>
+      <div class="flex flex-wrap gap-1.5 mb-3">
+        <span class="badge">XGBoost</span><span class="badge">FastAPI</span><span class="badge">PhishTank</span>
+      </div>
+      <div class="metric-chip inline-block">97.3% accuracy · FPR 0.4% · &lt;50ms latency</div>
+    </div>
+
+    <div class="card p-5 fade-in" data-cat="nlp">
+      <div class="flex items-start justify-between mb-3">
+        <span class="text-lg font-bold text-white leading-tight">Supply Chain Satisfaction NLP</span>
+        <a href="https://github.com/Sandyyy123/supply-chain-satisfaction-nlp" target="_blank" class="gh-link ml-2 shrink-0">↗ GitHub</a>
+      </div>
+      <p class="text-slate-400 text-sm mb-3">Hybrid SBERT embedding + LightGBM late-fusion predicting customer satisfaction from supply chain data and free-text reviews. SHAP explainability included.</p>
+      <div class="flex flex-wrap gap-1.5 mb-3">
+        <span class="badge">SBERT</span><span class="badge">LightGBM</span><span class="badge">SHAP</span>
+      </div>
+      <div class="metric-chip inline-block">SHAP for top satisfaction drivers</div>
+    </div>
+
+    <div class="card p-5 fade-in" data-cat="nlp">
+      <div class="flex items-start justify-between mb-3">
+        <span class="text-lg font-bold text-white leading-tight">Indic NLP Pipeline</span>
+        <a href="https://github.com/Sandyyy123/indic-nlp-pipeline" target="_blank" class="gh-link ml-2 shrink-0">↗ GitHub</a>
+      </div>
+      <p class="text-slate-400 text-sm mb-3">Processes 505M+ Indian names: Unicode cleaning, Devanagari/Gurmukhi transliteration, name parsing, religion classification, frequency analysis. Checkpoint/resume for scale.</p>
+      <div class="flex flex-wrap gap-1.5 mb-3">
+        <span class="badge">Polars</span><span class="badge">AI4Bharat</span><span class="badge">IndicXlit</span>
+      </div>
+      <div class="metric-chip inline-block">505M+ records · 70% speedup via cache</div>
+    </div>
+
+    <div class="card p-5 fade-in" data-cat="nlp">
+      <div class="flex items-start justify-between mb-3">
+        <span class="text-lg font-bold text-white leading-tight">Construction Email AI Analyzer</span>
+        <a href="https://github.com/Sandyyy123/construction-email-ai-analyzer" target="_blank" class="gh-link ml-2 shrink-0">↗ GitHub</a>
+      </div>
+      <p class="text-slate-400 text-sm mb-3">Parses Polish construction investment emails, extracts structured leads (type/stage/location/contact), scores priority, routes to regional reps, deduplicates across sources.</p>
+      <div class="flex flex-wrap gap-1.5 mb-3">
+        <span class="badge">GPT-4o</span><span class="badge">LangChain</span><span class="badge">FastAPI</span><span class="badge">SQLite</span>
+      </div>
+      <div class="metric-chip inline-block">16 voivodeships · 90-day dedup · 3 priority levels</div>
+    </div>
+
+    <div class="card p-5 fade-in" data-cat="nlp">
+      <div class="flex items-start justify-between mb-3">
+        <span class="text-lg font-bold text-white leading-tight">Rakuten Multimodal Classifier</span>
+        <a href="https://github.com/Sandyyy123/rakuten-multimodal-classifier" target="_blank" class="gh-link ml-2 shrink-0">↗ GitHub</a>
+      </div>
+      <p class="text-slate-400 text-sm mb-3">27-class French e-commerce product categorisation by late-fusing CamemBERT (text) with ResNet-50 (image) on the Rakuten France challenge dataset.</p>
+      <div class="flex flex-wrap gap-1.5 mb-3">
+        <span class="badge">CamemBERT</span><span class="badge">ResNet-50</span><span class="badge">CLIP</span><span class="badge">PyTorch</span>
+      </div>
+      <div class="metric-chip inline-block">Weighted F1 · 27-class multimodal</div>
+    </div>
+
+    <div class="card p-5 fade-in" data-cat="nlp">
+      <div class="flex items-start justify-between mb-3">
+        <span class="text-lg font-bold text-white leading-tight">Story Grammar VectorDB</span>
+        <a href="https://github.com/Sandyyy123/story-grammar-vectordb" target="_blank" class="gh-link ml-2 shrink-0">↗ GitHub</a>
+      </div>
+      <p class="text-slate-400 text-sm mb-3">FastAPI + ChromaDB PoC extracting 5W1H narrative structure from books, scoring children's reading comprehension via chat iterations against embedded grammar.</p>
+      <div class="flex flex-wrap gap-1.5 mb-3">
+        <span class="badge">ChromaDB</span><span class="badge">Pinecone</span><span class="badge">FastAPI</span><span class="badge">OpenAI</span>
+      </div>
+      <div class="metric-chip inline-block">Semantic comprehension scoring</div>
+    </div>
+
+    <!-- ====== TIME-SERIES & FORECASTING (5) ====== -->
+    <div class="card p-5 fade-in" data-cat="ts">
+      <div class="flex items-start justify-between mb-3">
+        <span class="text-lg font-bold text-white leading-tight">Favorita Grocery Forecasting</span>
+        <a href="https://github.com/Sandyyy123/favorita-grocery-sales-forecasting" target="_blank" class="gh-link ml-2 shrink-0">↗ GitHub</a>
+      </div>
+      <p class="text-slate-400 text-sm mb-3">Daily unit sales forecasting across 54 Ecuadorian stores and 33 product families (1,782 combinations) using LightGBM with lag/rolling/external regressors.</p>
+      <div class="flex flex-wrap gap-1.5 mb-3">
+        <span class="badge">LightGBM</span><span class="badge">statsmodels</span><span class="badge">walk-forward CV</span>
+      </div>
+      <div class="metric-chip inline-block">RMSLE · 1,782 store-family combinations</div>
+    </div>
+
+    <div class="card p-5 fade-in" data-cat="ts">
+      <div class="flex items-start justify-between mb-3">
+        <span class="text-lg font-bold text-white leading-tight">Smart Meter Energy Forecasting</span>
+        <a href="https://github.com/Sandyyy123/smart-meter-energy-forecasting" target="_blank" class="gh-link ml-2 shrink-0">↗ GitHub</a>
+      </div>
+      <p class="text-slate-400 text-sm mb-3">Household-level demand forecasting from 167M half-hourly readings (5,567 London households, 2011-2014) using LightGBM with ACORN socio-economic features.</p>
+      <div class="flex flex-wrap gap-1.5 mb-3">
+        <span class="badge">LightGBM</span><span class="badge">ACORN features</span><span class="badge">walk-forward</span>
+      </div>
+      <div class="metric-chip inline-block">MAE/RMSE/MAPE · 167M half-hourly records</div>
+    </div>
+
+    <div class="card p-5 fade-in" data-cat="ts">
+      <div class="flex items-start justify-between mb-3">
+        <span class="text-lg font-bold text-white leading-tight">Glacier Water Level Forecasting</span>
+        <a href="https://github.com/Sandyyy123/glacier-water-level-forecasting" target="_blank" class="gh-link ml-2 shrink-0">↗ GitHub</a>
+      </div>
+      <p class="text-slate-400 text-sm mb-3">Daily meltwater runoff forecasting for Vernagtferner glacier using LSTM on multivariate meteorological sequences and LightGBM with lag/calendar features.</p>
+      <div class="flex flex-wrap gap-1.5 mb-3">
+        <span class="badge">PyTorch LSTM</span><span class="badge">LightGBM</span><span class="badge">climate modelling</span>
+      </div>
+      <div class="metric-chip inline-block">Walk-forward · climate-trend modelling</div>
+    </div>
+
+    <div class="card p-5 fade-in" data-cat="ts">
+      <div class="flex items-start justify-between mb-3">
+        <span class="text-lg font-bold text-white leading-tight">London Fire Response Forecasting</span>
+        <a href="https://github.com/Sandyyy123/london-fire-response-forecasting" target="_blank" class="gh-link ml-2 shrink-0">↗ GitHub</a>
+      </div>
+      <p class="text-slate-400 text-sm mb-3">First-response time regression across 500K+ London Fire Brigade incidents using spatio-temporal features and LightGBM with SHAP attribution for operational transparency.</p>
+      <div class="flex flex-wrap gap-1.5 mb-3">
+        <span class="badge">LightGBM</span><span class="badge">geopandas</span><span class="badge">SHAP</span>
+      </div>
+      <div class="metric-chip inline-block">SHAP attribution · 500K+ incidents</div>
+    </div>
+
+    <div class="card p-5 fade-in" data-cat="ts">
+      <div class="flex items-start justify-between mb-3">
+        <span class="text-lg font-bold text-white leading-tight">Turbofan Engine RUL Prediction</span>
+        <a href="https://github.com/Sandyyy123/turbofan-engine-rul-prediction" target="_blank" class="gh-link ml-2 shrink-0">↗ GitHub</a>
+      </div>
+      <p class="text-slate-400 text-sm mb-3">Predicts Remaining Useful Life of aircraft turbofan engines from multivariate sensor sequences using Random Forest and LSTM on NASA CMAPSS (FD001-FD004).</p>
+      <div class="flex flex-wrap gap-1.5 mb-3">
+        <span class="badge">LSTM</span><span class="badge">Random Forest</span><span class="badge">NASA CMAPSS</span>
+      </div>
+      <div class="metric-chip inline-block">RMSE + asymmetric score (late prediction penalty)</div>
+    </div>
+
+    <!-- ====== RECOMMENDATION SYSTEMS (3) ====== -->
+    <div class="card p-5 fade-in" data-cat="recsys">
+      <div class="flex items-start justify-between mb-3">
+        <span class="text-lg font-bold text-white leading-tight">Fashion Recommendation Engine</span>
+        <a href="https://github.com/Sandyyy123/fashion-recommendation-engine" target="_blank" class="gh-link ml-2 shrink-0">↗ GitHub</a>
+      </div>
+      <p class="text-slate-400 text-sm mb-3">Hybrid collaborative filtering + content-based recommendations for 1.37M H&amp;M customers across 31M purchase transactions using ALS, LightFM, and Annoy for fast retrieval.</p>
+      <div class="flex flex-wrap gap-1.5 mb-3">
+        <span class="badge">LightFM</span><span class="badge">implicit ALS</span><span class="badge">Annoy</span>
+      </div>
+      <div class="metric-chip inline-block">MAP@12 · 1.37M customers · 31M transactions</div>
+    </div>
+
+    <div class="card p-5 fade-in" data-cat="recsys">
+      <div class="flex items-start justify-between mb-3">
+        <span class="text-lg font-bold text-white leading-tight">OTTO Session RecSys</span>
+        <a href="https://github.com/Sandyyy123/otto-session-recsys" target="_blank" class="gh-link ml-2 shrink-0">↗ GitHub</a>
+      </div>
+      <p class="text-slate-400 text-sm mb-3">Session-based recommendation on OTTO dataset (12.9M sessions, 220M events, 1.85M items): co-visitation baseline + SASRec multi-task transformer for clicks/carts/orders.</p>
+      <div class="flex flex-wrap gap-1.5 mb-3">
+        <span class="badge">SASRec</span><span class="badge">Co-visitation Matrix</span><span class="badge">Multi-task</span>
+      </div>
+      <div class="metric-chip inline-block">Recall@20 weighted · 12.9M sessions</div>
+    </div>
+
+    <div class="card p-5 fade-in" data-cat="recsys">
+      <div class="flex items-start justify-between mb-3">
+        <span class="text-lg font-bold text-white leading-tight">Baseball Pitch Sequence Predictor</span>
+        <a href="https://github.com/Sandyyy123/baseball-pitch-sequence-predictor" target="_blank" class="gh-link ml-2 shrink-0">↗ GitHub</a>
+      </div>
+      <p class="text-slate-400 text-sm mb-3">Predicts next pitch type from MLB Statcast sequences using XGBoost multi-class on Tarik Skubal career data. Analyses pitcher tendencies by count and batter handedness.</p>
+      <div class="flex flex-wrap gap-1.5 mb-3">
+        <span class="badge">XGBoost</span><span class="badge">Statcast API</span><span class="badge">sequence features</span>
+      </div>
+      <div class="metric-chip inline-block">5 pitch classes · confusion matrix analysis</div>
+    </div>
+
+    <!-- ====== MLOPS & LLM INFRASTRUCTURE (5) ====== -->
+    <div class="card p-5 fade-in" data-cat="mlops">
+      <div class="flex items-start justify-between mb-3">
+        <span class="text-lg font-bold text-white leading-tight">MLOps Federated Learning Platform</span>
+        <a href="https://github.com/Sandyyy123/mlops-federated-learning-platform" target="_blank" class="gh-link ml-2 shrink-0">↗ GitHub</a>
+      </div>
+      <p class="text-slate-400 text-sm mb-3">End-to-end MLOps: federated learning (Flower FedAvg), MLflow registry, FastAPI serving, GitHub Actions CI/CD, and Prometheus/Grafana drift monitoring. No raw data leaves nodes.</p>
+      <div class="flex flex-wrap gap-1.5 mb-3">
+        <span class="badge">Flower flwr</span><span class="badge">MLflow</span><span class="badge">Docker</span><span class="badge">Prometheus</span>
+      </div>
+      <div class="metric-chip inline-block">Full CI/CD · federated privacy · Grafana monitoring</div>
+    </div>
+
+    <div class="card p-5 fade-in" data-cat="mlops">
+      <div class="flex items-start justify-between mb-3">
+        <span class="text-lg font-bold text-white leading-tight">LoRA / Ollama Deploy Pipeline</span>
+        <a href="https://github.com/Sandyyy123/lora-ollama-deploy" target="_blank" class="gh-link ml-2 shrink-0">↗ GitHub</a>
+      </div>
+      <p class="text-slate-400 text-sm mb-3">Fine-tune any causal LLM with LoRA/QLoRA, convert to Q4_K_M GGUF, deploy via Ollama REST API on consumer hardware. Supports Llama 3, Mistral, Phi-3, Gemma 2, Qwen 2.5.</p>
+      <div class="flex flex-wrap gap-1.5 mb-3">
+        <span class="badge">PEFT LoRA</span><span class="badge">QLoRA</span><span class="badge">llama.cpp</span><span class="badge">Ollama</span>
+      </div>
+      <div class="metric-chip inline-block">8-12GB VRAM (QLoRA 7B) · ~4.5GB inference</div>
+    </div>
+
+    <div class="card p-5 fade-in" data-cat="mlops">
+      <div class="flex items-start justify-between mb-3">
+        <span class="text-lg font-bold text-white leading-tight">LangGraph + Composio Agents</span>
+        <a href="https://github.com/Sandyyy123/langgraph-composio-agents" target="_blank" class="gh-link ml-2 shrink-0">↗ GitHub</a>
+      </div>
+      <p class="text-slate-400 text-sm mb-3">10 production agentic workflows: sales lead triage, support resolver, recruiter pipeline, compliance reviewer, IT helpdesk — using LangGraph supervisor-worker with Composio OAuth.</p>
+      <div class="flex flex-wrap gap-1.5 mb-3">
+        <span class="badge">LangGraph</span><span class="badge">Composio</span><span class="badge">GPT-4o</span><span class="badge">presidio</span>
+      </div>
+      <div class="metric-chip inline-block">10 agents · 6 SaaS integrations · PII masking</div>
+    </div>
+
+    <div class="card p-5 fade-in" data-cat="mlops">
+      <div class="flex items-start justify-between mb-3">
+        <span class="text-lg font-bold text-white leading-tight">Gemma4 Fine-Tune Pipeline</span>
+        <a href="https://github.com/Sandyyy123/gemma4-finetune-pipeline" target="_blank" class="gh-link ml-2 shrink-0">↗ GitHub</a>
+      </div>
+      <p class="text-slate-400 text-sm mb-3">SFT pipeline for Gemma4: per-token thinking-channel loss masking, QLoRA, cloud deployment scripts for RunPod / Vast.ai / UpCloud. Debug evaluation for chain-of-thought.</p>
+      <div class="flex flex-wrap gap-1.5 mb-3">
+        <span class="badge">Gemma4</span><span class="badge">QLoRA</span><span class="badge">SFTTrainer</span><span class="badge">RunPod</span>
+      </div>
+      <div class="metric-chip inline-block">Thinking-channel supervision · cloud deploy scripts</div>
+    </div>
+
+    <div class="card p-5 fade-in" data-cat="mlops">
+      <div class="flex items-start justify-between mb-3">
+        <span class="text-lg font-bold text-white leading-tight">Pharma AI Monitor</span>
+        <a href="https://github.com/Sandyyy123/pharma-ai-monitor" target="_blank" class="gh-link ml-2 shrink-0">↗ GitHub</a>
+      </div>
+      <p class="text-slate-400 text-sm mb-3">Scores AI-generated pharmaceutical information against FDA drug label claims. Detects hallucinations and factual drift using 5 independent judge strategies: LLM, NLI, entity, zero-shot, rubric.</p>
+      <div class="flex flex-wrap gap-1.5 mb-3">
+        <span class="badge">GPT-4o</span><span class="badge">openFDA</span><span class="badge">SBERT NLI</span>
+      </div>
+      <div class="metric-chip inline-block">5 independent scoring strategies · HTML dashboard</div>
+    </div>
+
+    <!-- ====== BUSINESS AI (5) ====== -->
+    <div class="card p-5 fade-in" data-cat="biz">
+      <div class="flex items-start justify-between mb-3">
+        <span class="text-lg font-bold text-white leading-tight">Manufacturing B2B AI Automation</span>
+        <a href="https://github.com/Sandyyy123/manufacturing-b2b-ai-automation" target="_blank" class="gh-link ml-2 shrink-0">↗ GitHub</a>
+      </div>
+      <p class="text-slate-400 text-sm mb-3">FastAPI system for B2B manufacturing: RFQ-to-quote automation, ML pricing intelligence, repeat-order detection, RAG over product catalogs with ERP/CRM integration.</p>
+      <div class="flex flex-wrap gap-1.5 mb-3">
+        <span class="badge">FastAPI</span><span class="badge">LangChain</span><span class="badge">ChromaDB</span><span class="badge">GPT-4</span>
+      </div>
+      <div class="metric-chip inline-block">RFQ parsing · quote gen · repeat order detection</div>
+    </div>
+
+    <div class="card p-5 fade-in" data-cat="biz">
+      <div class="flex items-start justify-between mb-3">
+        <span class="text-lg font-bold text-white leading-tight">RCM Audit Toolkit</span>
+        <a href="https://github.com/Sandyyy123/rcm-audit-toolkit" target="_blank" class="gh-link ml-2 shrink-0">↗ GitHub</a>
+      </div>
+      <p class="text-slate-400 text-sm mb-3">Revenue cycle audit for mental health practices: reconciles sessions vs billed vs paid, identifies claims leakage, denial patterns, and TIQ autopay gaps. Excel + HTML reports.</p>
+      <div class="flex flex-wrap gap-1.5 mb-3">
+        <span class="badge">pandas</span><span class="badge">TIQ integration</span><span class="badge">openpyxl</span>
+      </div>
+      <div class="metric-chip inline-block">Claims leakage detection · billing reconciliation</div>
+    </div>
+
+    <div class="card p-5 fade-in" data-cat="biz">
+      <div class="flex items-start justify-between mb-3">
+        <span class="text-lg font-bold text-white leading-tight">Customer Lead Profiler</span>
+        <a href="https://github.com/Sandyyy123/customer-lead-profiler" target="_blank" class="gh-link ml-2 shrink-0">↗ GitHub</a>
+      </div>
+      <p class="text-slate-400 text-sm mb-3">CRM export analysis pipeline: K-Means customer segmentation, buyer vs non-buyer analysis, geographic growth opportunity mapping. Multi-sheet Excel dashboard output.</p>
+      <div class="flex flex-wrap gap-1.5 mb-3">
+        <span class="badge">K-Means</span><span class="badge">scipy</span><span class="badge">openpyxl</span>
+      </div>
+      <div class="metric-chip inline-block">Segmentation · churn analysis · geo mapping</div>
+    </div>
+
+    <div class="card p-5 fade-in" data-cat="biz">
+      <div class="flex items-start justify-between mb-3">
+        <span class="text-lg font-bold text-white leading-tight">PostHog Attribution Analytics</span>
+        <a href="https://github.com/Sandyyy123/posthog-attribution-analytics" target="_blank" class="gh-link ml-2 shrink-0">↗ GitHub</a>
+      </div>
+      <p class="text-slate-400 text-sm mb-3">Multi-touch attribution, ICP segmentation, and SEO audit combining PostHog events, GA4 sessions, and Search Console data. UMAP-based cluster visualization in Looker Studio.</p>
+      <div class="flex flex-wrap gap-1.5 mb-3">
+        <span class="badge">PostHog</span><span class="badge">GA4 API</span><span class="badge">UMAP</span><span class="badge">K-Means</span>
+      </div>
+      <div class="metric-chip inline-block">5-8 ICP segments · Top 50 SEO pages</div>
+    </div>
+
+    <div class="card p-5 fade-in" data-cat="biz">
+      <div class="flex items-start justify-between mb-3">
+        <span class="text-lg font-bold text-white leading-tight">BI Migration AI Demo</span>
+        <a href="https://github.com/Sandyyy123/bi-migration-ai-demo" target="_blank" class="gh-link ml-2 shrink-0">↗ GitHub</a>
+      </div>
+      <p class="text-slate-400 text-sm mb-3">AI-powered BI migration platform: FastAPI + Claude agents + Neo4j lineage graph. Automates dashboard/report translation across BI tools with impact analysis.</p>
+      <div class="flex flex-wrap gap-1.5 mb-3">
+        <span class="badge">FastAPI</span><span class="badge">Claude API</span><span class="badge">Neo4j</span>
+      </div>
+      <div class="metric-chip inline-block">Lineage graph · agent-driven migration</div>
+    </div>
+
+    <!-- ====== CONTENT & WRITING (4) ====== -->
+    <div class="card p-5 fade-in" data-cat="content">
+      <div class="flex items-start justify-between mb-3">
+        <span class="text-lg font-bold text-white leading-tight">Print Design Portfolio</span>
+        <a href="https://github.com/Sandyyy123/print-design-portfolio" target="_blank" class="gh-link ml-2 shrink-0">↗ GitHub</a>
+      </div>
+      <p class="text-slate-400 text-sm mb-3">Three programmatic print designs: A3 clinical trial monitoring forms, 4-page industrial B2B brochure, luxury real estate brand suite. Generated from HTML/CSS source — fully reproducible.</p>
+      <div class="flex flex-wrap gap-1.5 mb-3">
+        <span class="badge">WeasyPrint</span><span class="badge">HTML/CSS</span><span class="badge">python-pptx</span>
+      </div>
+      <div class="metric-chip inline-block">Code-generated · print-ready PDF</div>
+    </div>
+
+    <div class="card p-5 fade-in" data-cat="content">
+      <div class="flex items-start justify-between mb-3">
+        <span class="text-lg font-bold text-white leading-tight">Kids Activity Book Samples</span>
+        <a href="https://github.com/Sandyyy123/kids-activity-book-samples" target="_blank" class="gh-link ml-2 shrink-0">↗ GitHub</a>
+      </div>
+      <p class="text-slate-400 text-sm mb-3">KDP-ready activity books for boys 8-12: National Parks, space exploration, world wonders. Strict 7-element page template, Flesch-Kincaid Grade 4-6, 100-120 pages.</p>
+      <div class="flex flex-wrap gap-1.5 mb-3">
+        <span class="badge">KDP publishing</span><span class="badge">FK Grade 4-6</span><span class="badge">NPS/NASA verified</span>
+      </div>
+      <div class="metric-chip inline-block">Grade 4-6 reading level · 100-120 pages</div>
+    </div>
+
+    <div class="card p-5 fade-in" data-cat="content">
+      <div class="flex items-start justify-between mb-3">
+        <span class="text-lg font-bold text-white leading-tight">Health Cookbook Samples</span>
+        <a href="https://github.com/Sandyyy123/health-cookbook-samples" target="_blank" class="gh-link ml-2 shrink-0">↗ GitHub</a>
+      </div>
+      <p class="text-slate-400 text-sm mb-3">KDP health cookbooks targeting adults 45+: liver-friendly recipes with strict 6-element template, nutrition cross-referencing, swap guides, and meal plans.</p>
+      <div class="flex flex-wrap gap-1.5 mb-3">
+        <span class="badge">KDP publishing</span><span class="badge">nutrition QC</span><span class="badge">accessible tone</span>
+      </div>
+      <div class="metric-chip inline-block">Liver-friendly · adults 45+ · meal plans</div>
+    </div>
+
+    <div class="card p-5 fade-in" data-cat="content">
+      <div class="flex items-start justify-between mb-3">
+        <span class="text-lg font-bold text-white leading-tight">Teen Nonfiction Samples</span>
+        <a href="https://github.com/Sandyyy123/teen-nonfiction-samples" target="_blank" class="gh-link ml-2 shrink-0">↗ GitHub</a>
+      </div>
+      <p class="text-slate-400 text-sm mb-3">KDP teen nonfiction (ages 13-18): driving safety and life-skills guide with older-sibling conversational tone, consistent module structure, human QC.</p>
+      <div class="flex flex-wrap gap-1.5 mb-3">
+        <span class="badge">KDP publishing</span><span class="badge">ages 13-18</span><span class="badge">module structure</span>
+      </div>
+      <div class="metric-chip inline-block">Conversational · modular · driving/life skills</div>
+    </div>
+
+    <!-- ====== TOOLS & UTILITIES (4) ====== -->
+    <div class="card p-5 fade-in" data-cat="tools">
+      <div class="flex items-start justify-between mb-3">
+        <span class="text-lg font-bold text-white leading-tight">Vehicle CO2 Emissions Regression</span>
+        <a href="https://github.com/Sandyyy123/vehicle-co2-emissions-regression" target="_blank" class="gh-link ml-2 shrink-0">↗ GitHub</a>
+      </div>
+      <p class="text-slate-400 text-sm mb-3">Predicts CO2 emissions (g/km) from vehicle specifications using XGBoost with polynomial/interaction features. Framed against EU Fleet CO2 Regulation 2019/631.</p>
+      <div class="flex flex-wrap gap-1.5 mb-3">
+        <span class="badge">XGBoost</span><span class="badge">EU reg. 2019/631</span><span class="badge">residual analysis</span>
+      </div>
+      <div class="metric-chip inline-block">Prediction intervals · fleet compliance context</div>
+    </div>
+
+    <div class="card p-5 fade-in" data-cat="tools">
+      <div class="flex items-start justify-between mb-3">
+        <span class="text-lg font-bold text-white leading-tight">French Road Accident Classifier</span>
+        <a href="https://github.com/Sandyyy123/french-road-accident-classifier" target="_blank" class="gh-link ml-2 shrink-0">↗ GitHub</a>
+      </div>
+      <p class="text-slate-400 text-sm mb-3">4-class accident severity classification on French BAAC data (700K+ accidents/year) with SMOTE imbalance handling and SHAP-based interpretability for road safety policy.</p>
+      <div class="flex flex-wrap gap-1.5 mb-3">
+        <span class="badge">XGBoost</span><span class="badge">SMOTE</span><span class="badge">SHAP</span>
+      </div>
+      <div class="metric-chip inline-block">700K+ accidents/yr · 4-class severity</div>
+    </div>
+
+    <div class="card p-5 fade-in" data-cat="tools">
+      <div class="flex items-start justify-between mb-3">
+        <span class="text-lg font-bold text-white leading-tight">CDEGS Grounding Analysis</span>
+        <a href="https://github.com/Sandyyy123/cdegs-grounding-analysis" target="_blank" class="gh-link ml-2 shrink-0">↗ GitHub</a>
+      </div>
+      <p class="text-slate-400 text-sm mb-3">Post-processing suite for CDEGS electromagnetic/grounding simulation outputs. Applies IEEE 80 and IEC 60479 safety thresholds, generates PDF engineering reports.</p>
+      <div class="flex flex-wrap gap-1.5 mb-3">
+        <span class="badge">IEEE 80</span><span class="badge">IEC 60479</span><span class="badge">reportlab</span>
+      </div>
+      <div class="metric-chip inline-block">Transmission line safety · PDF reports</div>
+    </div>
+
+    <div class="card p-5 fade-in" data-cat="tools">
+      <div class="flex items-start justify-between mb-3">
+        <span class="text-lg font-bold text-white leading-tight">Qualitative Analysis Toolkit</span>
+        <a href="https://github.com/Sandyyy123/qualitative-analysis-toolkit" target="_blank" class="gh-link ml-2 shrink-0">↗ GitHub</a>
+      </div>
+      <p class="text-slate-400 text-sm mb-3">Parses MAXQDA .qdpx exports (REFI-QDA standard), builds codebooks, and produces frequency/cross-tabulation reports with interactive HTML. Supports Braun &amp; Clarke / IPA.</p>
+      <div class="flex flex-wrap gap-1.5 mb-3">
+        <span class="badge">REFI-QDA</span><span class="badge">pandas</span><span class="badge">openpyxl</span>
+      </div>
+      <div class="metric-chip inline-block">MAXQDA/NVivo/Atlas.ti · thematic analysis</div>
+    </div>
+
+  </div><!-- /cards-grid -->
+</section>
+
+<!-- ===== LIVE DEMO SECTION ===== -->
+<section class="max-w-7xl mx-auto px-6 pb-20" id="demos">
+  <div class="text-center mb-10">
+    <div class="inline-block mb-3 px-4 py-1.5 rounded-full text-xs font-semibold" style="background:rgba(16,185,129,0.12);color:#6ee7b7;border:1px solid rgba(16,185,129,0.25)">
+      Interactive Demos
+    </div>
+    <h2 class="text-3xl font-extrabold text-white">Try It Live</h2>
+    <p class="text-slate-400 mt-2">Browser-runnable demos from 4 key projects — no API calls, all client-side</p>
+  </div>
+
+  <!-- Demo Tabs -->
+  <div class="flex gap-1 mb-0 flex-wrap">
+    <button class="tab-btn active" onclick="showDemo('url', this)">URL Threat Classifier</button>
+    <button class="tab-btn" onclick="showDemo('co2', this)">CO2 Emissions Predictor</button>
+    <button class="tab-btn" onclick="showDemo('mc', this)">Monte Carlo RSU Valuation</button>
+    <button class="tab-btn" onclick="showDemo('pattern', this)">Trading Pattern Analyzer</button>
+  </div>
+
+  <!-- Demo Panels -->
+  <div id="demo-url" class="demo-panel" style="border-radius: 0 16px 16px 16px;">
+    <h3 class="text-white font-bold text-lg mb-1">URL Threat Classifier</h3>
+    <p class="text-slate-400 text-sm mb-5">Extracts 12 lexical/structural features from any URL and scores phishing probability — mirroring the repo's XGBoost feature pipeline (client-side approximation).</p>
+    <div class="flex gap-3 flex-wrap">
+      <input id="url-input" class="demo-input flex-1" type="text" placeholder="Enter a URL e.g. http://paypa1-secure.login.ru/verify" value="http://paypa1-secure.login.ru/verify">
+      <button class="demo-btn" onclick="classifyURL()">Analyze URL</button>
+    </div>
+    <div id="url-result" class="result-box hidden">
+      <div class="grid grid-cols-2 sm:grid-cols-3 gap-3 mb-4" id="url-features"></div>
+      <div class="flex items-center gap-4">
+        <div>
+          <div class="text-slate-400 text-xs mb-1">Threat Score</div>
+          <div id="url-score" class="text-3xl font-extrabold"></div>
+        </div>
+        <div class="flex-1">
+          <div class="text-slate-400 text-xs mb-2">Confidence</div>
+          <div class="progress-bar-bg"><div id="url-bar" class="progress-bar-fill" style="width:0%"></div></div>
+        </div>
+        <div id="url-verdict" class="px-4 py-2 rounded-lg font-bold text-sm"></div>
+      </div>
+    </div>
+  </div>
+
+  <div id="demo-co2" class="demo-panel hidden" style="border-radius: 0 16px 16px 16px;">
+    <h3 class="text-white font-bold text-lg mb-1">Vehicle CO2 Emissions Predictor</h3>
+    <p class="text-slate-400 text-sm mb-5">Estimates CO2 output (g/km) from vehicle specifications using the same feature relationships as the XGBoost regression model. EU Fleet CO2 compliance benchmark included.</p>
+    <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 mb-4">
+      <div>
+        <label class="text-slate-400 text-xs block mb-1">Engine Size (L)</label>
+        <input id="co2-engine" class="demo-input" type="number" step="0.1" min="0.6" max="8" value="2.0">
+      </div>
+      <div>
+        <label class="text-slate-400 text-xs block mb-1">Power (kW)</label>
+        <input id="co2-power" class="demo-input" type="number" min="40" max="600" value="110">
+      </div>
+      <div>
+        <label class="text-slate-400 text-xs block mb-1">Weight (kg)</label>
+        <input id="co2-weight" class="demo-input" type="number" min="700" max="4000" value="1450">
+      </div>
+      <div>
+        <label class="text-slate-400 text-xs block mb-1">Fuel Type</label>
+        <select id="co2-fuel" class="demo-input">
+          <option value="petrol">Petrol</option>
+          <option value="diesel">Diesel</option>
+          <option value="hybrid">Hybrid</option>
+          <option value="plugin">Plug-in Hybrid</option>
+        </select>
+      </div>
+    </div>
+    <button class="demo-btn" onclick="predictCO2()">Predict CO2</button>
+    <div id="co2-result" class="result-box hidden mt-4">
+      <div class="flex items-center gap-6 flex-wrap">
+        <div>
+          <div class="text-slate-400 text-xs mb-1">Predicted CO2</div>
+          <div id="co2-val" class="text-4xl font-extrabold text-white"></div>
+          <div class="text-slate-500 text-xs mt-0.5">g/km</div>
+        </div>
+        <div class="flex-1">
+          <div class="flex justify-between text-xs text-slate-500 mb-1">
+            <span>0 g/km</span><span id="co2-target-label">EU target 95 g/km</span><span>300 g/km</span>
+          </div>
+          <div class="progress-bar-bg"><div id="co2-bar" class="progress-bar-fill" style="width:0%"></div></div>
+          <div id="co2-verdict" class="mt-2 text-sm font-semibold"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="demo-mc" class="demo-panel hidden" style="border-radius: 0 16px 16px 16px;">
+    <h3 class="text-white font-bold text-lg mb-1">ASC 718 Monte Carlo RSU Valuation</h3>
+    <p class="text-slate-400 text-sm mb-5">Simulates 5,000 GBM price paths to value a performance RSU with consecutive-day stock price barrier (mirrors the repo's 100K-path engine, condensed for browser speed).</p>
+    <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 mb-4">
+      <div>
+        <label class="text-slate-400 text-xs block mb-1">Current Price ($)</label>
+        <input id="mc-s0" class="demo-input" type="number" min="1" max="5000" value="150">
+      </div>
+      <div>
+        <label class="text-slate-400 text-xs block mb-1">Barrier Price ($)</label>
+        <input id="mc-barrier" class="demo-input" type="number" min="1" max="5000" value="180">
+      </div>
+      <div>
+        <label class="text-slate-400 text-xs block mb-1">Volatility (annual %)</label>
+        <input id="mc-vol" class="demo-input" type="number" min="5" max="200" value="35">
+      </div>
+      <div>
+        <label class="text-slate-400 text-xs block mb-1">Vesting Period (yrs)</label>
+        <input id="mc-t" class="demo-input" type="number" min="1" max="7" step="0.5" value="3">
+      </div>
+    </div>
+    <button class="demo-btn" onclick="runMonteCarlo()">Run Simulation</button>
+    <div id="mc-result" class="result-box hidden mt-4">
+      <div class="grid grid-cols-3 gap-4 mb-4">
+        <div><div class="text-slate-400 text-xs mb-1">Grant-Date Fair Value</div><div id="mc-fv" class="text-2xl font-extrabold text-indigo-300"></div></div>
+        <div><div class="text-slate-400 text-xs mb-1">Vesting Probability</div><div id="mc-prob" class="text-2xl font-extrabold text-emerald-300"></div></div>
+        <div><div class="text-slate-400 text-xs mb-1">Expected Service Period</div><div id="mc-esp" class="text-2xl font-extrabold text-purple-300"></div></div>
+      </div>
+      <canvas id="mc-canvas" width="640" height="120"></canvas>
+    </div>
+  </div>
+
+  <div id="demo-pattern" class="demo-panel hidden" style="border-radius: 0 16px 16px 16px;">
+    <h3 class="text-white font-bold text-lg mb-1">Trading Pattern Statistical Analyzer</h3>
+    <p class="text-slate-400 text-sm mb-5">Enter pattern parameters and see win rate, expectancy, and p-value — replicating the SQLite → statistics pipeline from the trading-pattern-research-db repo.</p>
+    <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 mb-4">
+      <div>
+        <label class="text-slate-400 text-xs block mb-1">Winning Trades</label>
+        <input id="pat-wins" class="demo-input" type="number" min="1" max="500" value="56">
+      </div>
+      <div>
+        <label class="text-slate-400 text-xs block mb-1">Total Occurrences</label>
+        <input id="pat-total" class="demo-input" type="number" min="2" max="1000" value="84">
+      </div>
+      <div>
+        <label class="text-slate-400 text-xs block mb-1">Avg Win (%)</label>
+        <input id="pat-avgwin" class="demo-input" type="number" step="0.01" min="0" max="20" value="1.35">
+      </div>
+      <div>
+        <label class="text-slate-400 text-xs block mb-1">Avg Loss (%)</label>
+        <input id="pat-avgloss" class="demo-input" type="number" step="0.01" min="0" max="20" value="0.72">
+      </div>
+    </div>
+    <button class="demo-btn" onclick="analyzePattern()">Analyze Pattern</button>
+    <div id="pattern-result" class="result-box hidden mt-4">
+      <div class="grid grid-cols-2 sm:grid-cols-4 gap-4">
+        <div><div class="text-slate-400 text-xs mb-1">Win Rate</div><div id="pat-winrate" class="text-2xl font-extrabold text-indigo-300"></div></div>
+        <div><div class="text-slate-400 text-xs mb-1">Expectancy</div><div id="pat-exp" class="text-2xl font-extrabold text-emerald-300"></div></div>
+        <div><div class="text-slate-400 text-xs mb-1">Profit Factor</div><div id="pat-pf" class="text-2xl font-extrabold text-purple-300"></div></div>
+        <div><div class="text-slate-400 text-xs mb-1">p-value (binomial)</div><div id="pat-pval" class="text-2xl font-extrabold"></div></div>
+      </div>
+      <div id="pat-verdict" class="mt-4 p-3 rounded-lg text-sm font-semibold"></div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="border-t border-white/5 py-10 text-center text-slate-500 text-sm">
+  <div class="mb-3 text-white font-bold">Sandeep Grover · AI/ML Engineer · Data Scientist</div>
+  <div class="flex justify-center gap-6 mb-4">
+    <a href="https://github.com/Sandyyy123" target="_blank" class="gh-link">GitHub</a>
+    <a href="https://linkedin.com/in/sandeep-grover-b3192a16" target="_blank" class="gh-link">LinkedIn</a>
+    <a href="https://www.youtube.com/@grover.sandeep" target="_blank" class="gh-link">YouTube</a>
+  </div>
+  <div class="text-xs text-slate-600">50 public repositories · Built with real production data · All demos are client-side</div>
+</footer>
+
+<script>
+/* ===== FILTER ===== */
+function filterCards(cat, btn) {
+  document.querySelectorAll('.cat-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  document.querySelectorAll('#cards-grid .card').forEach(c => {
+    if (cat === 'all' || c.dataset.cat === cat) {
+      c.style.display = '';
+    } else {
+      c.style.display = 'none';
+    }
+  });
+}
+
+/* ===== DEMO TABS ===== */
+function showDemo(id, btn) {
+  document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  ['url','co2','mc','pattern'].forEach(d => {
+    document.getElementById('demo-' + d).classList.toggle('hidden', d !== id);
+  });
+}
+
+/* ===== URL THREAT CLASSIFIER ===== */
+function classifyURL() {
+  const url = document.getElementById('url-input').value.trim();
+  if (!url) return;
+
+  const features = extractURLFeatures(url);
+  const score = computeThreatScore(features);
+
+  const featEl = document.getElementById('url-features');
+  featEl.innerHTML = Object.entries(features).map(([k,v]) => `
+    <div style="background:rgba(30,33,58,0.8);border-radius:8px;padding:10px">
+      <div style="color:#64748b;font-size:0.68rem;margin-bottom:3px">${k.replace(/_/g,' ')}</div>
+      <div style="color:${v.flagged ? '#f87171':'#94a3b8'};font-weight:600;font-size:0.85rem">${v.value} ${v.flagged ? '⚑':''}</div>
+    </div>`).join('');
+
+  const pct = Math.round(score * 100);
+  document.getElementById('url-score').textContent = pct + '%';
+  document.getElementById('url-score').style.color = pct > 65 ? '#f87171' : pct > 35 ? '#fb923c' : '#34d399';
+  document.getElementById('url-bar').style.width = pct + '%';
+  document.getElementById('url-bar').style.background = pct > 65 ? 'linear-gradient(90deg,#ef4444,#f87171)' : pct > 35 ? 'linear-gradient(90deg,#f97316,#fb923c)' : 'linear-gradient(90deg,#10b981,#34d399)';
+
+  const verdict = document.getElementById('url-verdict');
+  if (pct > 65) { verdict.textContent = 'MALICIOUS'; verdict.style.cssText = 'background:rgba(239,68,68,0.15);color:#f87171;padding:8px 16px;border-radius:8px;border:1px solid rgba(239,68,68,0.3)'; }
+  else if (pct > 35) { verdict.textContent = 'SUSPICIOUS'; verdict.style.cssText = 'background:rgba(249,115,22,0.15);color:#fb923c;padding:8px 16px;border-radius:8px;border:1px solid rgba(249,115,22,0.3)'; }
+  else { verdict.textContent = 'SAFE'; verdict.style.cssText = 'background:rgba(16,185,129,0.12);color:#34d399;padding:8px 16px;border-radius:8px;border:1px solid rgba(16,185,129,0.25)'; }
+
+  document.getElementById('url-result').classList.remove('hidden');
+}
+
+function extractURLFeatures(url) {
+  let parsed;
+  try { parsed = new URL(url.startsWith('http') ? url : 'http://' + url); } catch(e) { parsed = { hostname: url, pathname: '/', protocol: 'http:' }; }
+  const full = url.toLowerCase();
+  const host = (parsed.hostname || '').toLowerCase();
+  const path = (parsed.pathname || '');
+
+  const digits_in_host = (host.match(/\d/g) || []).length;
+  const has_ip = /^(\d{1,3}\.){3}\d{1,3}$/.test(host);
+  const suspicious_tld = /\.(ru|tk|xyz|top|click|win|loan|download|review|country|racing)$/.test(host);
+  const hyphen_count = (host.match(/-/g) || []).length;
+  const subdomain_count = host.split('.').length - 2;
+  const url_length = url.length;
+  const has_at = full.includes('@');
+  const has_double_slash = full.split('//').length > 2;
+  const suspicious_words = ['login','verify','secure','account','update','confirm','paypal','bank','amazon'].filter(w => full.includes(w)).length;
+  const path_depth = (path.match(/\//g) || []).length;
+  const digit_ratio = digits_in_host / Math.max(host.length, 1);
+
+  return {
+    'URL Length': { value: url_length, flagged: url_length > 75 },
+    'IP Address': { value: has_ip ? 'Yes' : 'No', flagged: has_ip },
+    'Suspicious TLD': { value: suspicious_tld ? 'Yes' : 'No', flagged: suspicious_tld },
+    'Hyphen Count': { value: hyphen_count, flagged: hyphen_count > 2 },
+    'Subdomain Depth': { value: subdomain_count, flagged: subdomain_count > 2 },
+    'Phishing Keywords': { value: suspicious_words, flagged: suspicious_words > 0 },
+    '@ Symbol': { value: has_at ? 'Yes' : 'No', flagged: has_at },
+    'Double Slash': { value: has_double_slash ? 'Yes' : 'No', flagged: has_double_slash },
+    'Digit Ratio in Host': { value: digit_ratio.toFixed(2), flagged: digit_ratio > 0.3 },
+    'Path Depth': { value: path_depth, flagged: path_depth > 4 },
+    'HTTPS': { value: parsed.protocol === 'https:' ? 'Yes' : 'No', flagged: parsed.protocol !== 'https:' },
+    'Typosquat Pattern': { value: /[a-z]+[0-9][a-z]+/.test(host) ? 'Yes' : 'No', flagged: /[a-z]+[0-9][a-z]+/.test(host) }
+  };
+}
+
+function computeThreatScore(features) {
+  const weights = {
+    'URL Length': 0.05, 'IP Address': 0.15, 'Suspicious TLD': 0.15, 'Hyphen Count': 0.05,
+    'Subdomain Depth': 0.08, 'Phishing Keywords': 0.18, '@ Symbol': 0.1, 'Double Slash': 0.08,
+    'Digit Ratio in Host': 0.04, 'Path Depth': 0.03, 'HTTPS': 0.04, 'Typosquat Pattern': 0.05
+  };
+  let score = 0;
+  for (const [k, v] of Object.entries(features)) {
+    if (v.flagged) score += (weights[k] || 0.05);
+  }
+  return Math.min(score, 1);
+}
+
+/* ===== CO2 PREDICTOR ===== */
+function predictCO2() {
+  const engine = parseFloat(document.getElementById('co2-engine').value);
+  const power = parseFloat(document.getElementById('co2-power').value);
+  const weight = parseFloat(document.getElementById('co2-weight').value);
+  const fuel = document.getElementById('co2-fuel').value;
+
+  const fuelMult = { petrol: 1.0, diesel: 0.93, hybrid: 0.72, plugin: 0.45 };
+  const base = 60 + engine * 28 + power * 0.22 + weight * 0.038;
+  const co2 = Math.round(base * fuelMult[fuel]);
+
+  document.getElementById('co2-val').textContent = co2;
+  const pct = Math.min(co2 / 300, 1) * 100;
+  document.getElementById('co2-bar').style.width = pct + '%';
+  document.getElementById('co2-bar').style.background = co2 > 150 ? 'linear-gradient(90deg,#ef4444,#f87171)' : co2 > 95 ? 'linear-gradient(90deg,#f97316,#fb923c)' : 'linear-gradient(90deg,#10b981,#34d399)';
+
+  const targetLabel = fuel === 'plugin' ? 'EU target 50 g/km' : 'EU target 95 g/km';
+  const target = fuel === 'plugin' ? 50 : 95;
+  document.getElementById('co2-target-label').textContent = targetLabel;
+
+  const v = document.getElementById('co2-verdict');
+  if (co2 <= target) {
+    v.textContent = `✓ Compliant with ${targetLabel}`;
+    v.style.color = '#34d399';
+  } else {
+    const excess = co2 - target;
+    v.textContent = `✗ Exceeds target by ${excess} g/km — EU CO2 penalty applies`;
+    v.style.color = '#f87171';
+  }
+  document.getElementById('co2-result').classList.remove('hidden');
+}
+
+/* ===== MONTE CARLO ===== */
+function runMonteCarlo() {
+  const S0 = parseFloat(document.getElementById('mc-s0').value);
+  const barrier = parseFloat(document.getElementById('mc-barrier').value);
+  const vol = parseFloat(document.getElementById('mc-vol').value) / 100;
+  const T = parseFloat(document.getElementById('mc-t').value);
+  const r = 0.04; // risk-free rate
+  const n_paths = 5000;
+  const dt = 1 / 252;
+  const steps = Math.round(T * 252);
+  const consecutive_days = 60;
+
+  let vested = 0;
+  let sum_fv = 0;
+  let vest_times = [];
+  const sample_paths = [];
+
+  for (let i = 0; i < n_paths; i++) {
+    let S = S0;
+    let streak = 0;
+    let vested_at = null;
+    const path_sample = (i < 30) ? [S] : null;
+
+    for (let d = 0; d < steps; d++) {
+      const z = gaussRandom();
+      S = S * Math.exp((r - 0.5 * vol * vol) * dt + vol * Math.sqrt(dt) * z);
+      if (path_sample) path_sample.push(S);
+      if (S >= barrier) { streak++; if (streak >= consecutive_days && !vested_at) { vested_at = d / 252; } }
+      else { streak = 0; }
+    }
+    if (vested_at !== null) {
+      vested++;
+      sum_fv += S0; // simplified: grant-date price * vest prob
+      vest_times.push(vested_at);
+    }
+    if (i < 30) sample_paths.push(path_sample);
+  }
+
+  const prob = vested / n_paths;
+  const fv = (prob * S0).toFixed(2);
+  const esp = vest_times.length > 0 ? (vest_times.reduce((a,b) => a+b, 0) / vest_times.length).toFixed(2) : T.toFixed(2);
+
+  document.getElementById('mc-fv').textContent = '$' + fv;
+  document.getElementById('mc-prob').textContent = (prob * 100).toFixed(1) + '%';
+  document.getElementById('mc-esp').textContent = esp + ' yrs';
+
+  // Draw mini chart
+  const canvas = document.getElementById('mc-canvas');
+  const ctx = canvas.getContext('2d');
+  canvas.width = canvas.parentElement.offsetWidth - 32 || 600;
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+  const allPrices = sample_paths.flat();
+  const minP = Math.min(...allPrices) * 0.95;
+  const maxP = Math.max(...allPrices) * 1.05;
+  const W = canvas.width, H = canvas.height;
+
+  const toX = d => (d / steps) * W;
+  const toY = p => H - ((p - minP) / (maxP - minP)) * (H - 10) - 5;
+
+  sample_paths.forEach(path => {
+    ctx.beginPath();
+    ctx.strokeStyle = 'rgba(99,102,241,0.2)';
+    ctx.lineWidth = 0.8;
+    path.forEach((p, i) => { if (i === 0) ctx.moveTo(toX(i), toY(p)); else ctx.lineTo(toX(i), toY(p)); });
+    ctx.stroke();
+  });
+
+  // Draw barrier line
+  ctx.beginPath();
+  ctx.strokeStyle = 'rgba(248,113,113,0.7)';
+  ctx.lineWidth = 1.5;
+  ctx.setLineDash([5, 4]);
+  ctx.moveTo(0, toY(barrier));
+  ctx.lineTo(W, toY(barrier));
+  ctx.stroke();
+  ctx.setLineDash([]);
+  ctx.fillStyle = '#f87171';
+  ctx.font = '10px Inter, system-ui';
+  ctx.fillText('Barrier $' + barrier, 6, toY(barrier) - 4);
+
+  document.getElementById('mc-result').classList.remove('hidden');
+}
+
+function gaussRandom() {
+  let u = 0, v = 0;
+  while(u === 0) u = Math.random();
+  while(v === 0) v = Math.random();
+  return Math.sqrt(-2 * Math.log(u)) * Math.cos(2 * Math.PI * v);
+}
+
+/* ===== TRADING PATTERN ===== */
+function analyzePattern() {
+  const wins = parseInt(document.getElementById('pat-wins').value);
+  const total = parseInt(document.getElementById('pat-total').value);
+  const avgWin = parseFloat(document.getElementById('pat-avgwin').value);
+  const avgLoss = parseFloat(document.getElementById('pat-avgloss').value);
+  const losses = total - wins;
+
+  if (wins > total) { alert('Wins cannot exceed total occurrences'); return; }
+
+  const winRate = wins / total;
+  const expectancy = (winRate * avgWin) - ((1 - winRate) * avgLoss);
+  const profitFactor = (wins * avgWin) / Math.max(losses * avgLoss, 0.001);
+
+  // Binomial p-value (one-sided, H0: p <= 0.5)
+  const pval = binomialPValue(wins, total, 0.5);
+
+  document.getElementById('pat-winrate').textContent = (winRate * 100).toFixed(1) + '%';
+  document.getElementById('pat-exp').textContent = (expectancy >= 0 ? '+' : '') + expectancy.toFixed(3) + '%';
+  document.getElementById('pat-pf').textContent = profitFactor.toFixed(2) + 'x';
+
+  const pEl = document.getElementById('pat-pval');
+  pEl.textContent = pval < 0.001 ? '< 0.001' : pval.toFixed(4);
+  pEl.style.color = pval < 0.05 ? '#34d399' : pval < 0.1 ? '#fb923c' : '#f87171';
+
+  const verdict = document.getElementById('pat-verdict');
+  if (pval < 0.05 && expectancy > 0) {
+    verdict.textContent = '✓ CONFIRMED EDGE — statistically significant with positive expectancy. Worth including in the strategy.';
+    verdict.style.cssText = 'background:rgba(16,185,129,0.1);color:#34d399;border:1px solid rgba(16,185,129,0.25);border-radius:8px;padding:12px';
+  } else if (pval < 0.1 && expectancy > 0) {
+    verdict.textContent = '~ MARGINAL EDGE — trend is positive but p-value is weak. Gather more data before trading live.';
+    verdict.style.cssText = 'background:rgba(249,115,22,0.1);color:#fb923c;border:1px solid rgba(249,115,22,0.25);border-radius:8px;padding:12px';
+  } else {
+    verdict.textContent = '✗ NO CONFIRMED EDGE — not statistically significant. This pattern may be random noise.';
+    verdict.style.cssText = 'background:rgba(239,68,68,0.1);color:#f87171;border:1px solid rgba(239,68,68,0.25);border-radius:8px;padding:12px';
+  }
+  document.getElementById('pattern-result').classList.remove('hidden');
+}
+
+function binomialPValue(k, n, p0) {
+  // P(X >= k) under H0: p = p0, normal approximation
+  const mu = n * p0;
+  const sigma = Math.sqrt(n * p0 * (1 - p0));
+  const z = (k - 0.5 - mu) / sigma; // continuity correction
+  return 1 - normalCDF(z);
+}
+
+function normalCDF(z) {
+  const t = 1 / (1 + 0.2315419 * Math.abs(z));
+  const poly = t * (0.319381530 + t * (-0.356563782 + t * (1.781477937 + t * (-1.821255978 + t * 1.330274429))));
+  const cdf = 1 - (1/Math.sqrt(2*Math.PI)) * Math.exp(-0.5*z*z) * poly;
+  return z >= 0 ? cdf : 1 - cdf;
+}
+
+// Animate stat numbers on load
+window.addEventListener('load', () => {
+  document.querySelectorAll('.stat-number').forEach(el => {
+    const target = parseFloat(el.textContent.replace(/[^0-9.]/g,''));
+    const suffix = el.textContent.replace(/[0-9.]/g,'');
+    let start = 0; const duration = 1400;
+    const step = timestamp => {
+      if (!start) start = timestamp;
+      const prog = Math.min((timestamp - start) / duration, 1);
+      const ease = 1 - Math.pow(1 - prog, 3);
+      el.textContent = (target < 100 ? (target * ease).toFixed(target % 1 !== 0 ? 0 : 0) : Math.round(target * ease)) + suffix;
+      if (prog < 1) requestAnimationFrame(step);
+    };
+    requestAnimationFrame(step);
+  });
+});
+</script>
+</body>
+</html>
